@@ -5,6 +5,7 @@ Aucune dependance externe. Lancer depuis la racine du depot :
     python tools/check_site.py
 Code de sortie 0 si tout passe, 1 sinon.
 """
+import os
 import re
 import sys
 from pathlib import Path
@@ -19,10 +20,11 @@ VERIFIER_MENU = True
 MENU_DEBUT = "<!-- MENU:DEBUT -->"
 MENU_FIN = "<!-- MENU:FIN -->"
 
-MOTIF_RESSOURCE = re.compile(r'(?:src|href|poster)\s*=\s*"([^"]+)"')
+MOTIF_RESSOURCE = re.compile(r'''(?:src|href|poster)\s*=\s*(["'])((?:(?!\1).)*)\1''')
 MOTIF_TITRE = re.compile(r"<title>(.*?)</title>", re.S)
 MOTIF_DESC = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"')
 MOTIF_ID = re.compile(r'id\s*=\s*"([^"]+)"')
+MOTIF_MENU_LIEN = re.compile(r'<a\s+href="([^"]+)"([^>]*)>')
 
 erreurs = []
 
@@ -53,13 +55,48 @@ def bloc_menu(texte):
     return " ".join(brut.split())
 
 
+def entree_active(texte):
+    """Renvoie la liste des href marques actif dans le bloc menu brut (non neutralise)."""
+    debut = texte.find(MENU_DEBUT)
+    fin = texte.find(MENU_FIN)
+    if debut == -1 or fin == -1:
+        return None
+    brut = texte[debut + len(MENU_DEBUT):fin]
+    return [href for href, reste in MOTIF_MENU_LIEN.findall(brut) if "actif" in reste]
+
+
+def existe_sensible_casse(chemin_relatif):
+    """Existence de fichier verifiee composant par composant sur le systeme de
+    fichiers reel, pour ne pas dependre de l'insensibilite a la casse de
+    Windows (GitHub Pages sert le site depuis Linux, sensible a la casse)."""
+    courant = RACINE
+    for partie in Path(chemin_relatif).parts:
+        if not courant.is_dir():
+            return False
+        try:
+            noms = os.listdir(courant)
+        except OSError:
+            return False
+        if partie not in noms:
+            return False
+        courant = courant / partie
+    return courant.is_file()
+
+
 def main():
     # 1. Les pages attendues existent.
     for nom in PAGES_ATTENDUES:
-        if not (RACINE / nom).is_file():
+        if not existe_sensible_casse(nom):
             erreur(nom, "page attendue absente")
 
-    pages = [p for p in PAGES_ATTENDUES if (RACINE / p).is_file()]
+    # 1b. Aucune page HTML a la racine qui ne soit pas enregistree dans
+    # PAGES_ATTENDUES : sinon elle n'est jamais verifiee (liens, ancres,
+    # titre, description, identite du menu).
+    for chemin in sorted(RACINE.iterdir()):
+        if chemin.is_file() and chemin.suffix == ".html" and chemin.name not in PAGES_ATTENDUES:
+            erreur(chemin.name, "page HTML presente a la racine mais absente de PAGES_ATTENDUES")
+
+    pages = [p for p in PAGES_ATTENDUES if existe_sensible_casse(p)]
     titres = {}
     menus = {}
 
@@ -67,7 +104,7 @@ def main():
         texte = (RACINE / nom).read_text(encoding="utf-8")
         ids = set(MOTIF_ID.findall(texte))
 
-        for cible in MOTIF_RESSOURCE.findall(texte):
+        for _, cible in MOTIF_RESSOURCE.findall(texte):
             if est_externe(cible):
                 continue
 
@@ -82,7 +119,7 @@ def main():
                 continue
 
             # 2 et 3. Ressources et pages internes.
-            if not (RACINE / chemin).is_file():
+            if not existe_sensible_casse(chemin):
                 erreur(nom, "cible inexistante {}".format(chemin))
 
         # 5. Titre unique et non vide.
@@ -97,6 +134,9 @@ def main():
 
         if VERIFIER_MENU:
             menus[nom] = bloc_menu(texte)
+            actifs = entree_active(texte)
+            if actifs is not None and (len(actifs) != 1 or actifs[0] != nom):
+                erreur(nom, "le menu marque la mauvaise entree active")
 
     for titre, fichiers in titres.items():
         if len(fichiers) > 1:
