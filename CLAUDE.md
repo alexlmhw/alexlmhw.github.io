@@ -19,7 +19,7 @@ publiée telle quelle, sans build ni générateur de site.
 - `assets/cv.pdf`, `assets/book.pdf` — documents téléchargeables. **Fournis par
   Alexandre**, jamais générés ici. Les noms de fichiers sont fixes : pour publier une
   nouvelle version, on remplace le fichier, on ne renomme pas.
-- `assets/img/` — photos des projets, référencées depuis `index.html`.
+- `assets/img/` — photos des projets, référencées depuis les 5 pages.
 - `Input/` — **gitignoré**. Sources de travail d'Alexandre (CV `.docx`, book `.pptx`).
   C'est la référence de contenu : le site doit refléter le CV le plus récent qui s'y
   trouve. Ne jamais committer ce dossier.
@@ -62,8 +62,10 @@ page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
 
 ## Vérification
 
-Pas de tests ni de build. Après modification :
+Après toute modification :
 
-1. Ouvrir `index.html` dans un navigateur, vérifier desktop et mobile.
-2. Vérifier que chaque `src`/`href` vers `assets/` pointe vers un fichier existant.
-3. Vérifier que chaque ancre `#...` du sommaire correspond à une section.
+1. `python tools/check_site.py` — vérifie automatiquement : les 5 pages
+   attendues, les liens internes (`src`/`href` vers `assets/`), les ancres, l'unicité
+   des `title`/meta description, et l'identité du menu entre les 5 pages.
+2. Vérifier visuellement le rendu des 5 pages en desktop et en mobile 375 px — seul
+   point que le script ne couvre pas.
