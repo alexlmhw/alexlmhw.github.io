@@ -44,11 +44,15 @@ page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
   reprises dans la liste d'ancres de la sidebar (`.side-nav`) — ajouter une section
   de contenu implique en général d'ajouter son lien. Exceptions : `#haut` (le hero)
   et `#cequejefais` n'ont pas de lien dédié, la liste commence à `#realisations`.
-- **Sur l'accueil, `.side-nav` est fusionné sous le titre « Le site »**, juste après
-  le bloc de menu et en retrait : une seule rubrique de navigation, les 5 pages en
-  gras puis les ancres en secondaire. Il n'y a pas de titre « Sommaire » séparé.
-  `.side-nav` doit rester **en dehors** des marqueurs `MENU:DEBUT`/`MENU:FIN`, sans
-  quoi la garde d'identité du menu échouerait sur les 4 autres pages.
+- **Sur l'accueil, `.side-nav` est imbriqué dans le menu, juste sous « Accueil »**,
+  en retrait derrière un filet : une seule rubrique de navigation, les 5 pages en
+  gras et les sections de l'accueil en secondaire sous la première. Il n'y a pas de
+  titre « Sommaire » séparé. Les 4 pages de détail n'ont pas ce sous-bloc.
+- Ce sous-bloc est **le seul écart autorisé** entre les 5 copies du menu. Il doit
+  être encadré par `<!-- SOUS-MENU:DEBUT -->` et `<!-- SOUS-MENU:FIN -->` :
+  `check_site.py` le retire avant de comparer les menus. Tout ce qui est en dehors
+  de ces marqueurs, à l'intérieur de `MENU:DEBUT`/`MENU:FIN`, doit rester
+  strictement identique sur les 5 pages.
 - Les couleurs passent par les variables CSS de `:root` (`--bleu`, `--bleu-fonce`,
   `--vert`…). Ne pas coder de couleur en dur.
 - Les cartes projet utilisent `.carte` ; le chiffre de résultat en vert est

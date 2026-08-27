@@ -33,7 +33,7 @@ main{padding:52px 56px 30px;max-width:1080px}
 .sidebar a{text-decoration:none}
 .sidebar a:hover{text-decoration:underline}
 .side-dl a.btn{display:block;text-align:center;margin-bottom:9px}
-.side-nav{margin:6px 0 0 10px;padding-left:12px;border-left:1px solid #C3D2E4}
+.side-nav{margin:3px 0 8px 9px;padding:1px 0 1px 13px;border-left:1px solid #C3D2E4}
 .side-nav a{display:block;padding:2px 0;color:var(--texte-doux);font-weight:400;font-size:13px;text-decoration:none}
 .side-nav a:hover{color:var(--bleu-accent);text-decoration:underline}
 .side-menu a{display:block;padding:4px 0;color:var(--bleu);font-weight:700;font-size:14px;text-decoration:none}

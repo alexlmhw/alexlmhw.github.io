@@ -20,6 +20,15 @@ VERIFIER_MENU = True
 MENU_DEBUT = "<!-- MENU:DEBUT -->"
 MENU_FIN = "<!-- MENU:FIN -->"
 
+# Sous-bloc autorise a differer d'une page a l'autre : la liste d'ancres imbriquee
+# sous "Accueil", presente uniquement sur index.html. Il est retire avant de
+# comparer les menus, mais les 5 liens de page restent, eux, strictement identiques.
+SOUS_MENU_DEBUT = "<!-- SOUS-MENU:DEBUT -->"
+SOUS_MENU_FIN = "<!-- SOUS-MENU:FIN -->"
+MOTIF_SOUS_MENU = re.compile(
+    re.escape(SOUS_MENU_DEBUT) + ".*?" + re.escape(SOUS_MENU_FIN), re.S
+)
+
 MOTIF_RESSOURCE = re.compile(r'''(?:src|href|poster)\s*=\s*(["'])((?:(?!\1).)*)\1''')
 MOTIF_TITRE = re.compile(r"<title>(.*?)</title>", re.S)
 MOTIF_DESC = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"')
@@ -50,6 +59,8 @@ def bloc_menu(texte):
     if debut == -1 or fin == -1:
         return None
     brut = texte[debut + len(MENU_DEBUT):fin]
+    # Retire le sous-bloc d'ancres, autorise a n'exister que sur l'accueil.
+    brut = MOTIF_SOUS_MENU.sub("", brut)
     # Neutralise le marquage de la page courante et les espaces.
     brut = brut.replace(' class="actif"', "").replace(" actif", "")
     return " ".join(brut.split())
@@ -62,6 +73,8 @@ def entree_active(texte):
     if debut == -1 or fin == -1:
         return None
     brut = texte[debut + len(MENU_DEBUT):fin]
+    # Le sous-bloc d'ancres ne participe pas au marquage de la page courante.
+    brut = MOTIF_SOUS_MENU.sub("", brut)
     return [href for _, href, reste in MOTIF_MENU_LIEN.findall(brut) if 'class="actif"' in reste]
 
 
