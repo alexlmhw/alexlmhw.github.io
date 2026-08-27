@@ -41,10 +41,14 @@ page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
 - Langue du site : **français**, avec les apostrophes typographiques (`’` dans les
   sources d'origine ; l'ASCII `'` est utilisé dans le HTML pour rester simple).
 - Structure de `index.html` : une `<section id="...">` par bloc. La plupart sont
-  reprises dans le sommaire de la sidebar (`.side-nav`) — ajouter une section de
-  contenu implique en général d'ajouter son lien de sommaire. Exceptions : `#haut`
-  (le hero) et `#cequejefais` n'ont pas de lien dédié, le sommaire commence à
-  `#realisations`.
+  reprises dans la liste d'ancres de la sidebar (`.side-nav`) — ajouter une section
+  de contenu implique en général d'ajouter son lien. Exceptions : `#haut` (le hero)
+  et `#cequejefais` n'ont pas de lien dédié, la liste commence à `#realisations`.
+- **Sur l'accueil, `.side-nav` est fusionné sous le titre « Le site »**, juste après
+  le bloc de menu et en retrait : une seule rubrique de navigation, les 5 pages en
+  gras puis les ancres en secondaire. Il n'y a pas de titre « Sommaire » séparé.
+  `.side-nav` doit rester **en dehors** des marqueurs `MENU:DEBUT`/`MENU:FIN`, sans
+  quoi la garde d'identité du menu échouerait sur les 4 autres pages.
 - Les couleurs passent par les variables CSS de `:root` (`--bleu`, `--bleu-fonce`,
   `--vert`…). Ne pas coder de couleur en dur.
 - Les cartes projet utilisent `.carte` ; le chiffre de résultat en vert est
