@@ -24,7 +24,7 @@ MOTIF_RESSOURCE = re.compile(r'''(?:src|href|poster)\s*=\s*(["'])((?:(?!\1).)*)\
 MOTIF_TITRE = re.compile(r"<title>(.*?)</title>", re.S)
 MOTIF_DESC = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"')
 MOTIF_ID = re.compile(r'id\s*=\s*"([^"]+)"')
-MOTIF_MENU_LIEN = re.compile(r'<a\s+href="([^"]+)"([^>]*)>')
+MOTIF_MENU_LIEN = re.compile(r'<a\s+href=(["\'])([^\1]+?)\1([^>]*)>')
 
 erreurs = []
 
@@ -62,7 +62,7 @@ def entree_active(texte):
     if debut == -1 or fin == -1:
         return None
     brut = texte[debut + len(MENU_DEBUT):fin]
-    return [href for href, reste in MOTIF_MENU_LIEN.findall(brut) if "actif" in reste]
+    return [href for _, href, reste in MOTIF_MENU_LIEN.findall(brut) if 'class="actif"' in reste]
 
 
 def existe_sensible_casse(chemin_relatif):
