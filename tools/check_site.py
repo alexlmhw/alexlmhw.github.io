@@ -12,7 +12,7 @@ from pathlib import Path
 RACINE = Path(__file__).resolve().parent.parent
 
 # Complete au fil des taches du plan.
-PAGES_ATTENDUES = ["index.html", "outils.html", "bugali.html"]
+PAGES_ATTENDUES = ["index.html", "outils.html", "bugali.html", "monimalz.html"]
 
 # Active a la tache 10, quand les 5 pages portent le meme menu.
 VERIFIER_MENU = False
