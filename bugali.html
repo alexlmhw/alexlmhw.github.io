@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bugali — console interactive pour livres jeunesse · Alexandre Lemaire</title>
+<meta name="description" content="Console interactive tactile et sonore pour livres jeunesse : du prototype à la ligne d'assemblage. 15 000 unités fabriquées en France, 97 % de couverture de test.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <img class="photo" src="assets/img/photo.jpg" alt="Portrait d'Alexandre Lemaire">
+    <div class="side-nom">ALEXANDRE<br>LEMAIRE</div>
+    <div>
+      <div class="side-titre">Contact</div>
+      <ul>
+        <li>Paris, France · Permis B</li>
+        <li><a href="mailto:alexlemaire.a@gmail.com">alexlemaire.a@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/alexandre-lemaire/" target="_blank" rel="noopener">linkedin.com/in/alexandre-lemaire</a></li>
+        <li><a href="https://github.com/AlexLmHw" target="_blank" rel="noopener">github.com/AlexLmHw</a></li>
+      </ul>
+      <div class="side-titre">Téléchargements</div>
+      <div class="side-dl">
+        <a class="btn" href="assets/cv.pdf" download>CV (PDF)</a>
+        <a class="btn" href="assets/book.pdf" download>Book · Portfolio (PDF)</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<main>
+  <a class="retour" href="index.html">← Retour à l'accueil</a>
+
+  <section class="entete-projet">
+    <div class="surtitre">Réalisation · 2021 – 2025</div>
+    <h1>Bugali — console interactive</h1>
+    <p class="soustitre">Console tactile et sonore pour livres jeunesse : du prototype à la ligne d'assemblage, en trois étapes.</p>
+    <p class="intro">Entré comme ingénieur électronique, devenu Hardware Manager à mesure que le produit partait vers l'usine : product owner de la console et interface avec les usines, avec une vraie lecture méca — intégration électro-mécanique, contraintes de fabrication et d'assemblage.</p>
+    <div class="meta-projet">
+      <div class="meta-bloc"><h4>Rôle</h4><p>Ingénieur électronique puis Hardware Manager · product owner de la console · interface avec les usines.</p></div>
+      <div class="meta-bloc"><h4>Équipe</h4><p>Lab dirigé par l'un des fondateurs, en deux équipes : hardware (1 méca, 1 embarqué, 1 support et moi), soft (CTO, app, web, UX).</p></div>
+      <div class="meta-bloc"><h4>Stack</h4><p>ESP32 WROVER (Wi-Fi / BLE) · tactile capacitif Azoteq · détection IR et induction · RFID · USB-C · audio 4 canaux · carte SD · PCB 2 et 4 couches + flex · connecteurs zebra.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="stats">
+      <div class="stat"><b>15 000</b><span>Consoles fabriquées en France</span></div>
+      <div class="stat"><b>200 000</b><span>Livres imprimés en Chine</span></div>
+      <div class="stat"><b>97 %</b><span>Couverture de test</span></div>
+      <div class="stat"><b>&lt; 2 %</b><span>Taux de SAV</span></div>
+    </div>
+  </section>
+
+  <section id="phases">
+    <h2>Trois étapes</h2>
+    <p class="chapo">Du premier prototype à la ligne d'assemblage, en trois ans et demi.</p>
+
+    <div class="phase">
+      <div class="phase-num">01 · Prototypage</div>
+      <h3>2019 → 2022 — commencé en freelance</h3>
+      <p>Deux itérations de design produit — pliable puis console — équivalent EVT.</p>
+      <ul>
+        <li><b>Conception</b> — protos complets : schéma, routage, BOM, dossiers de production, validation fonctionnelle.</li>
+        <li><b>Itération 1</b> — détection de page par IR, RFID, vibreur haptique, USB.</li>
+        <li><b>Itération 2</b> — détection de page par induction, USB-C, mixage audio.</li>
+        <li><b>Verrous levés</b> — livres et cartes identifiés, 16 pages détectées, tactile multipoints, 4 canaux audio.</li>
+        <li><b>Aussi</b> — sélection de l'EMS · documentation CIR, brevet, dessins &amp; modèles.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">02 · Présérie</div>
+      <h3>avril 2022 → début 2023</h3>
+      <p>Design produit figé — équivalent DVT, une itération et demie.</p>
+      <ul>
+        <li><b>Choix</b> — finalisation des choix techniques.</li>
+        <li><b>Conception</b> — architecture, schéma, routage, dossier de production.</li>
+        <li><b>Fabrication</b> — 150 produits de présérie pour les tests.</li>
+        <li><b>Outillage</b> — banc de test et de programmation custom.</li>
+        <li><b>Banc livre</b> — développement d'un banc de test livre.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">03 · Industrialisation</div>
+      <h3>09/2022 → production en 09/2023, en magasin en novembre</h3>
+      <p>Avec l'EMS, jusqu'à la ligne d'assemblage.</p>
+      <ul>
+        <li><b>DFM élec</b> — impact composants et PCB : packages, dimensions.</li>
+        <li><b>DFM méca</b> — suivi des échanges méca pour mesurer l'impact élec.</li>
+        <li><b>DFA</b> — empilage des PCBs, collage de la dalle, connecteurs zebra intercarte.</li>
+        <li><b>DFT</b> — spécification des tests PCB (97 % de couverture) et produit ; implémentation sur les cartes.</li>
+        <li><b>Validation</b> — AMDEC · certifications CE / CEM / RF.</li>
+        <li><b>Banc livre</b> — V2 du banc de test livre, et outils associés.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="resultat">
+    <h2>Résultat</h2>
+    <div class="cartes c2">
+      <div class="carte">
+        <div class="media"><img src="assets/img/bugali.jpg" alt="Console Bugali avec ses livres"></div>
+        <h3>La console</h3>
+        <p>Produit et ligne d'assemblage dimensionnés pour une première étape de 50 000 unités. Assemblée, testée et emballée en 10 minutes, avec traçabilité.</p>
+        <p class="liens"><a href="https://shop.bugali.com/products/la-bugali" target="_blank" rel="noopener">shop.bugali.com ↗</a></p>
+        <div class="resultat">15 000 unités fabriquées en France · SAV &lt; 2 %</div>
+      </div>
+      <div class="carte">
+        <h3>Les livres</h3>
+        <p>200 000 exemplaires imprimés en Chine : 50 000 validés avec le banc V1, 150 000 avec le banc V2, plus complet.</p>
+        <p class="liens"><a href="outils.html">Voir les bancs de test →</a></p>
+        <div class="resultat">200 000 livres produits</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="poc">
+    <h2>Avant la console : le POC</h2>
+    <p class="chapo">2019 – 2021, en freelance — le projet qui deviendra la console.</p>
+    <div class="cartes c2">
+      <div class="carte">
+        <div class="video">
+          <video controls preload="metadata" poster="assets/img/poc-bugali.jpg">
+            <source src="https://hammerchmidt.com/videos/bugali-1.av1.webm" type="video/webm">
+            Votre navigateur ne lit pas cette vidéo.
+          </video>
+        </div>
+        <h3>Livre connecté à un vidéoprojecteur</h3>
+        <p>Cartes de test pour la détection de pages et le tactile ; motherboard support du projecteur et du module Raspberry — alimentation, moteurs pas à pas d'ouverture et fermeture, ventilation.</p>
+        <div class="resultat">3 ensembles pour les démos · levée de fonds réussie</div>
+      </div>
+      <div class="carte">
+        <h3>L'enjeu</h3>
+        <p>Produire des ensembles démontrables pour convaincre les investisseurs. L'équipe : les fondateurs et des freelances — ingénieur méca, dev embarqué et app, motion designer.</p>
+        <div class="resultat">j'intègre ensuite l'équipe pour l'industrialisation</div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="nav-bas">
+    <a class="btn" href="outils.html">Les outils &amp; bancs de test →</a>
+    <a class="btn secondaire" href="index.html">← Retour à l'accueil</a>
+  </nav>
+
+  <footer>
+    Alexandre Lemaire · Book 2026 — <a href="mailto:alexlemaire.a@gmail.com">alexlemaire.a@gmail.com</a> · <a href="https://www.linkedin.com/in/alexandre-lemaire/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/AlexLmHw" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+</main>
+</div>
+</body>
+</html>
