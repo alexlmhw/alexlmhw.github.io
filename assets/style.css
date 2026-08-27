@@ -80,6 +80,22 @@ section[id]{scroll-margin-top:20px}
 .proto .resultat-ligne{font-size:13.5px;font-weight:700;color:var(--vert);margin-top:3px}
 .proto .liens{margin:3px 0 0;font-size:13.5px}
 
+/* ---------- Bandeaux de realisation ---------- */
+.bandeau-projet{display:grid;grid-template-columns:38% 1fr;gap:26px;background:var(--carte);border:1px solid var(--bordure);border-radius:10px;overflow:hidden;margin-bottom:20px;max-width:960px}
+.bandeau-projet .visuel{background:#fff;border-right:1px solid var(--bordure)}
+.bandeau-projet .visuel img{width:100%;height:100%;min-height:210px;object-fit:cover}
+.bandeau-projet .corps{padding:22px 24px 22px 0;display:flex;flex-direction:column}
+.bandeau-projet .corps h3{font-size:22px;margin-bottom:6px}
+.bandeau-projet .corps p{font-size:15px;margin-bottom:10px}
+.bandeau-projet .resultat{margin-bottom:14px}
+.bandeau-projet .btn{align-self:flex-start;margin-top:auto}
+
+/* ---------- Encart renvoi ---------- */
+.encart{background:var(--sidebar);border:1px solid var(--bordure);border-radius:10px;padding:22px 26px;max-width:960px;margin-top:30px}
+.encart h3{font-size:19px;margin-bottom:6px}
+.encart p{font-size:14.5px;margin-bottom:10px}
+.encart .chiffres{font-size:14px;font-weight:700;color:var(--vert);margin-bottom:14px}
+
 /* ---------- Vidéos ---------- */
 .video{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid var(--bordure);background:#0d1520;margin-bottom:14px}
 .video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -145,6 +161,10 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
   h1{font-size:32px}
   .c3,.c2,.perso{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr);gap:18px}
+  .bandeau-projet{grid-template-columns:1fr}
+  .bandeau-projet .visuel{border-right:0;border-bottom:1px solid var(--bordure)}
+  .bandeau-projet .visuel img{min-height:180px}
+  .bandeau-projet .corps{padding:20px}
   .proto{grid-template-columns:1fr;gap:2px}
   .timeline{margin-left:8px}
   .jalon .dates{position:static;width:auto;text-align:left;display:block;margin-bottom:2px}
