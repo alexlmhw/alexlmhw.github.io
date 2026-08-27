@@ -66,6 +66,7 @@ Après toute modification :
 
 1. `python tools/check_site.py` — vérifie automatiquement : les 5 pages
    attendues, les liens internes (`src`/`href` vers `assets/`), les ancres, l'unicité
-   des `title`/meta description, et l'identité du menu entre les 5 pages.
+   des `title`s, la présence de meta description, et l'identité du menu entre les 5
+   pages.
 2. Vérifier visuellement le rendu des 5 pages en desktop et en mobile 375 px — seul
    point que le script ne couvre pas.
