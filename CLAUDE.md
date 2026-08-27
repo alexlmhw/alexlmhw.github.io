@@ -8,23 +8,51 @@ publiée telle quelle, sans build ni générateur de site.
 
 ## Structure
 
-- `index.html` — **tout le site**. Page unique, CSS inline dans un `<style>`,
-  aucune dépendance JS. La seule ressource externe est la police Lato (Google Fonts).
+- `index.html` — accueil. Contenu complet : réalisations, prototypes, parcours,
+  formation, compétences, téléchargements.
+- `bugali.html`, `monimalz.html`, `fer-a-fileter.html`, `outils.html` — pages de
+  détail. Elles partagent le gabarit de `outils.html` (head, sidebar, footer).
+- `assets/style.css` — **tous** les styles, partagés par les 5 pages. Aucun
+  `<style>` inline ne doit réapparaître dans une page.
+- `tools/check_site.py` — vérifications structurelles. À lancer après toute
+  modification : `python tools/check_site.py`.
 - `assets/cv.pdf`, `assets/book.pdf` — documents téléchargeables. **Fournis par
   Alexandre**, jamais générés ici. Les noms de fichiers sont fixes : pour publier une
   nouvelle version, on remplace le fichier, on ne renomme pas.
-- `assets/img/` — photos des projets, référencées depuis `index.html`.
+- `assets/img/` — photos des projets, référencées depuis les 5 pages.
 - `Input/` — **gitignoré**. Sources de travail d'Alexandre (CV `.docx`, book `.pptx`).
   C'est la référence de contenu : le site doit refléter le CV le plus récent qui s'y
   trouve. Ne jamais committer ce dossier.
+
+## Le menu est dupliqué — règle impérative
+
+Le site est en HTML pur, sans générateur : le menu existe en **5 exemplaires
+identiques**, délimités par `<!-- MENU:DEBUT -->` et `<!-- MENU:FIN -->`.
+
+**Ajouter, renommer ou retirer une entrée de menu impose de modifier les 5
+fichiers :** `index.html`, `bugali.html`, `monimalz.html`, `fer-a-fileter.html`,
+`outils.html`.
+
+Seule différence autorisée entre les cinq : le `class="actif"` sur le lien de la
+page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
 
 ## Conventions
 
 - Langue du site : **français**, avec les apostrophes typographiques (`’` dans les
   sources d'origine ; l'ASCII `'` est utilisé dans le HTML pour rester simple).
-- Structure de `index.html` : une `<section id="...">` par bloc, chacune reprise
-  dans le sommaire de la sidebar (`.side-nav`) — ajouter une section implique
-  d'ajouter son lien de sommaire.
+- Structure de `index.html` : une `<section id="...">` par bloc. La plupart sont
+  reprises dans la liste d'ancres de la sidebar (`.side-nav`) — ajouter une section
+  de contenu implique en général d'ajouter son lien. Exceptions : `#haut` (le hero)
+  et `#cequejefais` n'ont pas de lien dédié, la liste commence à `#realisations`.
+- **Sur l'accueil, `.side-nav` est imbriqué dans le menu, juste sous « Accueil »**,
+  en retrait derrière un filet : une seule rubrique de navigation, les 5 pages en
+  gras et les sections de l'accueil en secondaire sous la première. Il n'y a pas de
+  titre « Sommaire » séparé. Les 4 pages de détail n'ont pas ce sous-bloc.
+- Ce sous-bloc est **le seul écart autorisé** entre les 5 copies du menu. Il doit
+  être encadré par `<!-- SOUS-MENU:DEBUT -->` et `<!-- SOUS-MENU:FIN -->` :
+  `check_site.py` le retire avant de comparer les menus. Tout ce qui est en dehors
+  de ces marqueurs, à l'intérieur de `MENU:DEBUT`/`MENU:FIN`, doit rester
+  strictement identique sur les 5 pages.
 - Les couleurs passent par les variables CSS de `:root` (`--bleu`, `--bleu-fonce`,
   `--vert`…). Ne pas coder de couleur en dur.
 - Les cartes projet utilisent `.carte` ; le chiffre de résultat en vert est
@@ -44,8 +72,11 @@ publiée telle quelle, sans build ni générateur de site.
 
 ## Vérification
 
-Pas de tests ni de build. Après modification :
+Après toute modification :
 
-1. Ouvrir `index.html` dans un navigateur, vérifier desktop et mobile.
-2. Vérifier que chaque `src`/`href` vers `assets/` pointe vers un fichier existant.
-3. Vérifier que chaque ancre `#...` du sommaire correspond à une section.
+1. `python tools/check_site.py` — vérifie automatiquement : les 5 pages
+   attendues, les liens internes (`src`/`href` vers `assets/`), les ancres, l'unicité
+   des `title`s, la présence de meta description, et l'identité du menu entre les 5
+   pages.
+2. Vérifier visuellement le rendu des 5 pages en desktop et en mobile 375 px — seul
+   point que le script ne couvre pas.

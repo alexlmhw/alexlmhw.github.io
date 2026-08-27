@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outils &amp; bancs de test Bugali · Alexandre Lemaire</title>
+<meta name="description" content="Les outils et bancs de test conçus pour la console Bugali : programmation, présérie, test livre chez l'imprimeur, compression zebra, validation produit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <img class="photo" src="assets/img/photo.jpg" alt="Portrait d'Alexandre Lemaire">
+    <div class="side-nom">ALEXANDRE<br>LEMAIRE</div>
+    <div>
+      <div class="side-titre">Contact</div>
+      <ul>
+        <li>Paris, France · Permis B</li>
+        <li><a href="mailto:alexlemaire.a@gmail.com">alexlemaire.a@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/alexandre-lemaire/" target="_blank" rel="noopener">linkedin.com/in/alexandre-lemaire</a></li>
+        <li><a href="https://github.com/AlexLmHw" target="_blank" rel="noopener">github.com/AlexLmHw</a></li>
+      </ul>
+      <div class="side-titre">Le site</div>
+      <!-- MENU:DEBUT -->
+      <nav class="side-menu">
+        <a href="index.html">Accueil</a>
+        <a href="bugali.html">Bugali — console</a>
+        <a href="outils.html" class="actif">Outils &amp; bancs de test</a>
+        <a href="monimalz.html">Monimalz — tirelire</a>
+        <a href="fer-a-fileter.html">Boîtier fer à fileter</a>
+      </nav>
+      <!-- MENU:FIN -->
+      <div class="side-titre">Téléchargements</div>
+      <div class="side-dl">
+        <a class="btn" href="assets/cv.pdf" download>CV (PDF)</a>
+        <a class="btn" href="assets/book.pdf" download>Book · Portfolio (PDF)</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<main>
+  <section class="entete-projet">
+    <div class="surtitre">Bugali · 2021 – 2025</div>
+    <h1>Outils &amp; bancs de test</h1>
+    <p class="soustitre">Des consoles de série sans port de debug, des livres par centaines de milliers.</p>
+    <p class="intro">Pour industrialiser la console, j'ai imaginé et conçu ces outils avec le lab : cartes électroniques, assemblage, définition des fonctionnalités et, souvent, le logiciel. En réutilisant au maximum des briques éprouvées — des outils développés vite, et robustes.</p>
+    <div class="meta-projet">
+      <div class="meta-bloc"><h4>Rôle</h4><p>Architecture et conception des PCBs · assemblage · soft Arduino et interfaces LabVIEW · spécification mécanique.</p></div>
+      <div class="meta-bloc"><h4>Période</h4><p>09/2021 – 03/2025, tout au long de la vie de la console, du prototype à l'usine.</p></div>
+      <div class="meta-bloc"><h4>Stack</h4><p>Arduino · LabVIEW · pogo pins · PCB de test dédiés.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="stats">
+      <div class="stat"><b>6</b><span>Outils et bancs conçus</span></div>
+      <div class="stat"><b>3</b><span>Bancs déployés en Chine</span></div>
+      <div class="stat"><b>150 000</b><span>Livres validés au banc V2</span></div>
+      <div class="stat"><b>150</b><span>Produits de présérie testés</span></div>
+    </div>
+  </section>
+
+  <section id="les-outils">
+    <h2>Les outils</h2>
+    <p class="chapo">Toute la chaîne : le développement, la présérie, l'usine et l'imprimeur.</p>
+
+    <div class="cartes c2">
+      <div class="carte">
+        <div class="media"><img src="assets/img/banc1.jpg" alt="Module de programmation et debug"></div>
+        <h3>Module de programmation &amp; debug</h3>
+        <p>Se connecte sur la main board pour ajouter un port de communication aux consoles industrialisées, qui n'en ont pas.</p>
+        <div class="resultat">→ tous les développeurs l'utilisent</div>
+      </div>
+      <div class="carte">
+        <div class="media"><img src="assets/img/banc2.jpg" alt="Banc de test livre chez l'imprimeur"></div>
+        <h3>Banc de test livre V2 — imprimeur</h3>
+        <p>Connecté aux serveurs Bugali, interface LabVIEW. Plus complet que la V1, après les bugs rencontrés en production.</p>
+        <div class="resultat">→ 3 bancs en Chine · 150 000 livres validés</div>
+      </div>
+      <div class="carte">
+        <h3>Banc de test présérie</h3>
+        <p>Teste un maximum de fonctions de la carte principale. Conception du PCB et du soft Arduino.</p>
+        <div class="resultat">→ 150 produits de présérie programmés et testés</div>
+      </div>
+      <div class="carte">
+        <h3>Banc de compression zebra</h3>
+        <p>Qualification des connecteurs zebra — liaison par compression — pour la production. Modulable : teste les zebras et les PCBs.</p>
+        <div class="resultat">→ connecteurs qualifiés pour la série</div>
+      </div>
+      <div class="carte">
+        <h3>Banc de validation produit</h3>
+        <p>Spécification de l'interface LabVIEW, validation des dalles tactiles et du collage.</p>
+        <div class="resultat">→ des centaines d'heures de log en température</div>
+      </div>
+      <div class="carte">
+        <h3>Et aussi</h3>
+        <p>Module audio sans tactile pour l'étude de la sortie audio · banc de contrôle des boîtes de livres fermées, pour vérifier les 50 000 premiers livres sans les déballer · spécification d'une interface BLE Chrome pour les tests.</p>
+        <div class="resultat">→ et plein d'autres</div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="nav-bas">
+    <a class="btn" href="monimalz.html">La tirelire Monimalz →</a>
+    <a class="btn secondaire" href="index.html">← Retour à l'accueil</a>
+  </nav>
+
+  <footer>
+    Alexandre Lemaire · Book 2026 — <a href="mailto:alexlemaire.a@gmail.com">alexlemaire.a@gmail.com</a> · <a href="https://www.linkedin.com/in/alexandre-lemaire/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/AlexLmHw" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+</main>
+</div>
+</body>
+</html>

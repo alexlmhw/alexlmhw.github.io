@@ -8,134 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bleu-fonce:#17456E;
-  --bleu:#1F4E79;
-  --bleu-accent:#2E74B5;
-  --bleu-clair:#5B9BD5;
-  --vert:#3B7D3B;
-  --sidebar:#E9EEF6;
-  --carte:#F7FAFD;
-  --bordure:#D8E3F0;
-  --texte:#33373D;
-  --texte-doux:#5A6270;
-  --fond:#FFFFFF;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Lato',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--texte);background:var(--fond);line-height:1.55;font-size:16px}
-a{color:var(--bleu-accent)}
-img{max-width:100%;display:block}
-
-/* ---------- Layout ---------- */
-.page{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
-.sidebar{background:var(--sidebar);padding:44px 28px;border-right:1px solid var(--bordure)}
-.sidebar-inner{position:sticky;top:36px}
-main{padding:52px 56px 30px;max-width:1080px}
-
-/* ---------- Sidebar ---------- */
-.photo{width:170px;height:170px;border-radius:50%;object-fit:cover;margin:0 auto 18px}
-.side-nom{text-align:center;font-weight:900;color:var(--bleu-fonce);font-size:20px;letter-spacing:.04em;margin-bottom:26px}
-.side-titre{font-size:12.5px;font-weight:700;letter-spacing:.22em;color:var(--bleu-accent);text-transform:uppercase;border-bottom:1px solid #C3D2E4;padding-bottom:6px;margin:26px 0 12px}
-.sidebar p, .sidebar li{font-size:14px;color:var(--texte)}
-.sidebar ul{list-style:none}
-.sidebar li{margin-bottom:7px}
-.sidebar a{text-decoration:none}
-.sidebar a:hover{text-decoration:underline}
-.side-dl a.btn{display:block;text-align:center;margin-bottom:9px}
-.side-nav a{display:block;padding:3px 0;color:var(--bleu);font-weight:700;font-size:14px}
-
-/* ---------- Boutons ---------- */
-.btn{display:inline-block;background:var(--bleu);color:#fff;font-weight:700;font-size:14px;padding:10px 16px;border-radius:7px;text-decoration:none;transition:background .15s}
-.btn:hover{background:var(--bleu-accent)}
-.btn.secondaire{background:transparent;color:var(--bleu);border:1.5px solid var(--bleu)}
-.btn.secondaire:hover{background:var(--bleu);color:#fff}
-
-/* ---------- Typo sections ---------- */
-.surtitre{font-size:13px;font-weight:700;letter-spacing:.28em;color:var(--bleu-accent);text-transform:uppercase;margin-bottom:10px}
-h1{font-size:44px;font-weight:900;color:var(--bleu-fonce);line-height:1.1;margin-bottom:10px}
-.soustitre{font-size:19px;color:var(--bleu-accent);margin-bottom:18px}
-h2{font-size:30px;font-weight:900;color:var(--bleu-fonce);margin-bottom:6px}
-.chapo{font-size:17px;color:var(--bleu-accent);margin-bottom:24px}
-h3{font-size:18px;font-weight:700;color:var(--bleu);margin-bottom:8px}
-section{margin-bottom:74px}
-section[id]{scroll-margin-top:20px}
-.intro{max-width:760px;font-size:17px}
-
-/* ---------- Stats ---------- */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:#E4ECF7;border-radius:10px;padding:22px 12px;margin:30px 0 0;max-width:860px}
-.stat{text-align:center}
-.stat b{display:block;font-size:32px;font-weight:900;color:var(--bleu-fonce)}
-.stat span{font-size:13.5px;color:var(--texte-doux)}
-
-/* ---------- Cartes ---------- */
-.cartes{display:grid;gap:20px}
-.c3{grid-template-columns:repeat(3,1fr)}
-.c2{grid-template-columns:repeat(2,1fr)}
-.carte{background:var(--carte);border:1px solid var(--bordure);border-radius:10px;padding:20px;display:flex;flex-direction:column}
-.carte .media{border-radius:8px;overflow:hidden;background:#fff;margin-bottom:14px;border:1px solid var(--bordure)}
-.carte .media img{width:100%;height:190px;object-fit:cover}
-.carte p{font-size:14.5px;margin-bottom:10px}
-.carte .resultat{margin-top:auto;font-size:14px;font-weight:700;color:var(--vert)}
-.carte .liens{margin:4px 0 10px;font-size:14px}
-.badge-annee{font-size:13px;font-weight:700;color:var(--bleu-accent);margin-bottom:6px}
-
-/* ---------- Vidéos ---------- */
-.video{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid var(--bordure);background:#0d1520;margin-bottom:14px}
-.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
-.legende-video{font-size:12.5px;color:var(--texte-doux);margin-top:-8px;margin-bottom:12px}
-
-/* ---------- Timeline ---------- */
-.timeline{position:relative;margin-left:150px;border-left:2.5px solid var(--bleu-clair);padding-left:30px;max-width:720px}
-.jalon{position:relative;margin-bottom:34px}
-.jalon::before{content:"";position:absolute;left:-38.5px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--bleu)}
-.jalon .dates{position:absolute;left:-185px;top:2px;width:135px;text-align:right;font-weight:700;color:var(--bleu-accent);font-size:15px}
-.jalon h3{margin-bottom:4px}
-.jalon p{font-size:14.5px;color:var(--texte)}
-
-/* ---------- Formation ---------- */
-.form-item{margin-bottom:18px}
-.form-item:last-child{margin-bottom:0}
-.form-item .annee{display:block;font-size:13px;font-weight:700;color:var(--bleu-accent);margin-bottom:2px}
-.form-item h3{font-size:16.5px;margin-bottom:2px}
-.form-item p{font-size:14.5px;color:var(--texte-doux)}
-
-/* ---------- Au-delà de la technique ---------- */
-.perso{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px}
-.perso .carte p{margin-bottom:0}
-
-/* ---------- Téléchargements ---------- */
-.dl-carte{align-items:flex-start}
-.dl-carte .icone{font-size:30px;margin-bottom:10px}
-.dl-carte .btns{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
-.note-dl{font-size:13.5px;color:var(--texte-doux);margin-top:14px}
-
-/* ---------- Bandeau recherche ---------- */
-.bandeau{background:var(--bleu-fonce);color:#fff;border-radius:10px;padding:30px 34px;max-width:900px}
-.bandeau h2{color:#fff;font-size:22px;margin-bottom:8px}
-.bandeau p{font-size:16px;color:#DCE6F2}
-.bandeau .btn{background:#fff;color:var(--bleu-fonce);margin-top:16px}
-
-/* ---------- Footer ---------- */
-footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte-doux);font-size:13.5px}
-
-/* ---------- Responsive ---------- */
-@media (max-width:980px){
-  .page{grid-template-columns:1fr}
-  .sidebar{border-right:0;border-bottom:1px solid var(--bordure);padding:30px 24px}
-  .sidebar-inner{position:static;display:grid;grid-template-columns:auto 1fr;gap:0 28px;max-width:640px;margin:0 auto}
-  .photo{width:110px;height:110px;grid-row:span 2;margin:0}
-  .side-nom{text-align:left;margin-bottom:8px}
-  .side-nav,.titre-sommaire{display:none}
-  main{padding:40px 24px}
-  h1{font-size:32px}
-  .c3,.c2,.perso{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr);gap:18px}
-  .timeline{margin-left:8px}
-  .jalon .dates{position:static;width:auto;text-align:left;display:block;margin-bottom:2px}
-}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <div class="page">
@@ -153,21 +26,31 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
         <li><a href="https://www.linkedin.com/in/alexandre-lemaire/" target="_blank" rel="noopener">linkedin.com/in/alexandre-lemaire</a></li>
         <li><a href="https://github.com/AlexLmHw" target="_blank" rel="noopener">github.com/AlexLmHw</a></li>
       </ul>
+      <div class="side-titre">Le site</div>
+      <!-- MENU:DEBUT -->
+      <nav class="side-menu">
+        <a href="index.html" class="actif">Accueil</a>
+        <!-- SOUS-MENU:DEBUT -->
+        <div class="side-nav">
+          <a href="#realisations">Mes réalisations</a>
+          <a href="#parcours">Mon parcours</a>
+          <a href="#formation">Formation</a>
+          <a href="#competences">Compétences</a>
+          <a href="#hors-technique">Au-delà de la technique</a>
+          <a href="#telechargements">Téléchargements</a>
+        </div>
+        <!-- SOUS-MENU:FIN -->
+        <a href="bugali.html">Bugali — console</a>
+        <a href="outils.html">Outils &amp; bancs de test</a>
+        <a href="monimalz.html">Monimalz — tirelire</a>
+        <a href="fer-a-fileter.html">Boîtier fer à fileter</a>
+      </nav>
+      <!-- MENU:FIN -->
       <div class="side-titre">Téléchargements</div>
       <div class="side-dl">
         <a class="btn" href="assets/cv.pdf" download>CV (PDF)</a>
         <a class="btn" href="assets/book.pdf" download>Book · Portfolio (PDF)</a>
       </div>
-      <div class="side-titre titre-sommaire">Sommaire</div>
-      <nav class="side-nav">
-        <a href="#realisations">Mes réalisations</a>
-        <a href="#outils">Outils &amp; bancs de test</a>
-        <a href="#parcours">Mon parcours</a>
-        <a href="#formation">Formation</a>
-        <a href="#competences">Compétences</a>
-        <a href="#hors-technique">Au-delà de la technique</a>
-        <a href="#telechargements">Téléchargements</a>
-      </nav>
     </div>
   </div>
 </aside>
@@ -214,116 +97,112 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
   <h2>Mes réalisations</h2>
   <p class="chapo">Dix ans de produits : trois industrialisés, une dizaine de prototypes qui ont vécu.</p>
 
-  <div class="cartes c3">
-    <div class="carte">
-      <div class="media"><img src="assets/img/bugali.jpg" alt="Console Bugali avec ses livres"></div>
+  <div class="bandeau-projet">
+    <div class="visuel"><img src="assets/img/bugali.jpg" alt="Console Bugali avec ses livres"></div>
+    <div class="corps">
+      <div class="badge-annee">2021 – 2025</div>
       <h3>Bugali — console jeunesse</h3>
-      <p>Architecture, PCBs, bancs de test, certifications : product owner de la console jusqu'à l'usine.</p>
-      <p class="liens"><a href="https://shop.bugali.com/products/la-bugali" target="_blank" rel="noopener">shop.bugali.com</a></p>
-      <div class="resultat">2024 · 15 000 consoles · 200 000 livres · 97 % de couverture de test · SAV &lt; 2 %</div>
+      <p>Architecture, PCBs, bancs de test, certifications : product owner de la console jusqu'à l'usine, puis interface avec les usines comme Hardware Manager.</p>
+      <div class="resultat">15 000 consoles · 200 000 livres · 97 % de couverture de test · SAV &lt; 2 %</div>
+      <a class="btn" href="bugali.html">Voir le projet en détail →</a>
     </div>
-    <div class="carte">
-      <div class="video">
-        <iframe src="https://www.youtube-nocookie.com/embed/KmYQxAXNUoY" title="Monimalz — vidéo produit" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+  </div>
+
+  <div class="bandeau-projet">
+    <div class="visuel"><img src="assets/img/monimalz.jpg" alt="Monimalz — tirelire connectée"></div>
+    <div class="corps">
+      <div class="badge-annee">2017 – 2019</div>
       <h3>Monimalz — tirelire connectée</h3>
-      <p>Cartes V1 et V2, monnayeur breveté, industrialisation et certifications en Chine.</p>
-      <p class="liens"><a href="https://www.youtube.com/watch?v=1kolCs9WSbE" target="_blank" rel="noopener">vidéo CES 2018 ↗</a></p>
-      <div class="resultat">2017 · présérie de 100 unités au CES · 2019 · 1 000 unités vendues Au Bon Marché</div>
+      <p>Cartes V1 et V2, monnayeur breveté, industrialisation et certifications en Chine, pour Yellow Innovation — le lab d'innovation de La Poste.</p>
+      <div class="resultat">présérie de 100 unités au CES 2018 · 1 000 unités vendues Au Bon Marché</div>
+      <a class="btn" href="monimalz.html">Voir le projet en détail →</a>
     </div>
-    <div class="carte">
-      <div class="media"><img src="assets/img/fileter.jpg" alt="Boîtier de fer à fileter" style="object-fit:contain;background:#fff"></div>
+  </div>
+
+  <div class="bandeau-projet">
+    <div class="visuel"><img src="assets/img/fileter.jpg" alt="Boîtier de fer à fileter" style="object-fit:contain;background:#fff"></div>
+    <div class="corps">
+      <div class="badge-annee">2014 – 2017</div>
       <h3>Boîtier fer à fileter — maroquinerie</h3>
-      <p>Passage de l'analogique au µC, firmwares des variantes, DFM / DFA / DFT, production.</p>
-      <p class="liens"><a href="https://www.adece.eu/boitier-alimentation.html" target="_blank" rel="noopener">adece.eu</a></p>
-      <div class="resultat">2017 · 3 000 pièces/an · toujours en production</div>
+      <p>Passage de l'analogique au microcontrôleur, firmwares des trois variantes, DFM / DFA / DFT et mise en production.</p>
+      <div class="resultat">≈ 3 000 pièces/an · toujours en production</div>
+      <a class="btn" href="fer-a-fileter.html">Voir le projet en détail →</a>
     </div>
   </div>
 
-  <h3 style="margin:34px 0 14px;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--bleu-accent)">Prototypes — levées de fonds, tournages, essais terrain</h3>
-  <div class="cartes c3">
-    <div class="carte">
-      <div class="video">
-        <video controls preload="metadata" poster="assets/img/poc-bugali.jpg">
-          <source src="https://hammerchmidt.com/videos/bugali-1.av1.webm" type="video/webm">
-          Votre navigateur ne lit pas cette vidéo.
-        </video>
+  <h3 style="margin:34px 0 0;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--bleu-accent)">Prototypes — levées de fonds, tournages, essais terrain</h3>
+  <div class="protos">
+    <div class="proto">
+      <span class="annee">2024</span>
+      <div>
+        <div class="nom">KFC Delivery Safe</div>
+        <div class="quoi">Coffre de livraison sécurisé imaginé pour KFC.</div>
+        <div class="resultat-ligne">5 protos fonctionnels pour le tournage</div>
+        <p class="liens"><a href="https://thomasgirod.fr/kfc-delivery-safe" target="_blank" rel="noopener">voir le projet ↗</a></p>
       </div>
-      <div class="badge-annee">2019 – 2021</div>
-      <h3>POC Bugali — livre + projecteur</h3>
-      <p>Premiers protos du livre connecté à un vidéoprojecteur : détection de pages, tactile, motherboard.</p>
-      <div class="resultat">levée de fonds réussie → le projet devient la console</div>
     </div>
-    <div class="carte">
-      <div class="media"><img src="assets/img/captainblink.jpg" alt="Captain Blink — prototype lumineux"></div>
-      <div class="badge-annee">2021</div>
-      <h3>Captain Blink — brassard cycliste</h3>
-      <p>PCB µC + LED pour tester les guides de lumière et valider le concept optique.</p>
-      <p class="liens"><a href="https://www.captainblink.com/" target="_blank" rel="noopener">captainblink.com</a></p>
-      <div class="resultat">vendu chez Decathlon après crowdfunding</div>
+    <div class="proto">
+      <span class="annee">2019 – 2021</span>
+      <div>
+        <div class="nom">POC Bugali — livre + projecteur</div>
+        <div class="quoi">Premiers protos du livre connecté à un vidéoprojecteur : détection de pages, tactile, motherboard.</div>
+        <div class="resultat-ligne">levée de fonds réussie → le projet devient la console</div>
+      </div>
     </div>
-    <div class="carte">
-      <div class="media"><img src="assets/img/66origin.jpg" alt="Carte électronique 66origin"></div>
-      <div class="badge-annee">2021</div>
-      <h3>66origin — powerbank vélo</h3>
-      <p>Carte switch batterie (STM32, CAN) et carte de connexion à pogo pins avec écran, et leurs firmwares.</p>
-      <p class="liens"><a href="https://www.66origin.com/works/velo-electrique-urbain-connecte-design-compact-ia" target="_blank" rel="noopener">66origin.com</a></p>
-      <div class="resultat">2 ensembles protos + dossier de fabrication</div>
+    <div class="proto">
+      <span class="annee">2021</span>
+      <div>
+        <div class="nom">66origin — powerbank vélo</div>
+        <div class="quoi">Carte switch batterie (STM32, CAN) et carte de connexion à pogo pins avec écran, et leurs firmwares.</div>
+        <div class="resultat-ligne">2 ensembles protos + dossier de fabrication</div>
+        <p class="liens"><a href="https://www.66origin.com/works/velo-electrique-urbain-connecte-design-compact-ia" target="_blank" rel="noopener">66origin.com ↗</a></p>
+      </div>
     </div>
-    <div class="carte">
-      <div class="badge-annee">2024</div>
-      <h3>KFC Delivery Safe</h3>
-      <p>Coffre de livraison sécurisé imaginé pour KFC — 5 protos fonctionnels pour le tournage.</p>
-      <p class="liens"><a href="https://thomasgirod.fr/kfc-delivery-safe" target="_blank" rel="noopener">voir le projet ↗</a></p>
-      <div class="resultat">5 protos fonctionnels</div>
+    <div class="proto">
+      <span class="annee">2021</span>
+      <div>
+        <div class="nom">Captain Blink — brassard cycliste</div>
+        <div class="quoi">PCB µC + LED pour tester les guides de lumière et valider le concept optique.</div>
+        <div class="resultat-ligne">vendu chez Decathlon après crowdfunding</div>
+        <p class="liens"><a href="https://www.captainblink.com/" target="_blank" rel="noopener">captainblink.com ↗</a></p>
+      </div>
     </div>
-    <div class="carte">
-      <div class="badge-annee">2019</div>
-      <h3>Plug &amp; Ride</h3>
-      <p>Ensemble produit : carte + soft + accessoire, communicant avec l'app du client.</p>
-      <p class="liens"><a href="https://www.instagram.com/plug_and_ride_r1/" target="_blank" rel="noopener">voir le projet ↗</a></p>
-      <div class="resultat">fonctionnel et communicant</div>
+    <div class="proto">
+      <span class="annee">2019</span>
+      <div>
+        <div class="nom">Plug &amp; Ride</div>
+        <div class="quoi">Ensemble produit : carte + soft + accessoire, communicant avec l'app du client.</div>
+        <div class="resultat-ligne">fonctionnel et communicant</div>
+        <p class="liens"><a href="https://www.instagram.com/plug_and_ride_r1/" target="_blank" rel="noopener">voir le projet ↗</a></p>
+      </div>
     </div>
-    <div class="carte">
-      <div class="media"><img src="assets/img/am3000.jpg" alt="AM3000 — détecteur d'amiante"></div>
-      <div class="badge-annee">2017</div>
-      <h3>AM3000 — détecteur d'amiante</h3>
-      <p>Cartes prototypes et portage du code Pascal vers C sur dsPIC, pour SDEC.</p>
-      <div class="resultat">le client repart sur un nouveau design avec le µC validé</div>
+    <div class="proto">
+      <span class="annee">2017</span>
+      <div>
+        <div class="nom">AM3000 — détecteur d'amiante</div>
+        <div class="quoi">Cartes prototypes et portage du code Pascal vers C sur dsPIC, pour SDEC.</div>
+        <div class="resultat-ligne">le client repart sur un nouveau design avec le µC validé</div>
+      </div>
     </div>
-    <div class="carte">
-      <div class="media"><img src="assets/img/beeonline.jpg" alt="Ruche connectée Beeonline" style="object-fit:contain;background:#fff"></div>
-      <div class="badge-annee">2015</div>
-      <h3>Ruche connectée Beeonline</h3>
-      <p>Carte et soft embarqué : GSM, capteurs poids, température, humidité.</p>
-      <p class="liens"><a href="https://www.bee-online.fr/" target="_blank" rel="noopener">bee-online.fr</a></p>
-      <div class="resultat">10 ruches en test plus d'un an</div>
+    <div class="proto">
+      <span class="annee">2015</span>
+      <div>
+        <div class="nom">Ruche connectée Beeonline</div>
+        <div class="quoi">Carte et soft embarqué : GSM, capteurs poids, température, humidité.</div>
+        <div class="resultat-ligne">10 ruches en test plus d'un an</div>
+        <p class="liens"><a href="https://www.bee-online.fr/" target="_blank" rel="noopener">bee-online.fr ↗</a></p>
+      </div>
     </div>
+  </div>
+
+  <div class="encart">
+    <h3>Outils &amp; bancs de test</h3>
+    <p>Des consoles de série sans port de debug, des livres par centaines de milliers : j'ai conçu avec le lab les outils de toute la chaîne — le développement, la présérie, l'usine et l'imprimeur.</p>
+    <div class="chiffres">6 outils conçus · 3 bancs déployés en Chine · 150 000 livres validés</div>
+    <a class="btn" href="outils.html">Voir les outils &amp; bancs de test →</a>
   </div>
 </section>
 
-<!-- Outils & bancs -->
-<section id="outils">
-  <h2>Bugali — outils &amp; bancs de test</h2>
-  <p class="chapo">Des consoles de série sans port de debug, des livres par centaines de milliers : j'ai conçu avec le lab les outils de toute la chaîne.</p>
-  <div class="cartes c2">
-    <div class="carte">
-      <div class="media"><img src="assets/img/banc1.jpg" alt="Module de programmation et debug"></div>
-      <h3>Module de programmation &amp; debug</h3>
-      <p>Se connecte sur la main board pour ajouter un port de communication aux consoles industrialisées.</p>
-      <div class="resultat">→ tous les développeurs l'utilisent</div>
-    </div>
-    <div class="carte">
-      <div class="media"><img src="assets/img/banc2.jpg" alt="Banc de test livre chez l'imprimeur"></div>
-      <h3>Banc de test livre V2 — imprimeur</h3>
-      <p>Connecté aux serveurs Bugali, interface LabVIEW — déployé chez l'imprimeur en Chine.</p>
-      <div class="resultat">→ 3 bancs en Chine · 150 000 livres validés</div>
-    </div>
-  </div>
-  <p style="margin-top:16px;font-size:14.5px;color:var(--texte-doux)">Et aussi : banc de test présérie (150 produits programmés et testés), banc de compression zebra, banc de validation produit (des centaines d'heures de log en température), banc de contrôle des boîtes de livres fermées… Le détail est dans le <a href="assets/book.pdf" download>book</a>.</p>
-</section>
-
-<!-- Parcours -->
 <section id="parcours">
   <h2>Mon parcours</h2>
   <p class="chapo">Dix ans entre bureau d'études et usine, du prototype à la série.</p>
