@@ -1,0 +1,12 @@
+# Sources de travail (CV, book, exports Office) — non publiées
+Input/
+
+# Fichiers temporaires Office
+~$*
+*.tmp
+
+# Système
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store

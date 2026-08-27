@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alexandre Lemaire · Ingénieur Électronique</title>
-<meta name="description" content="Alexandre Lemaire, ingénieur électronique — 10 ans d'expérience, systèmes embarqués & IoT, du prototypage à l'industrialisation. Portfolio, CV et book à télécharger.">
+<title>Alexandre Lemaire · Ingénieur Électronique Senior</title>
+<meta name="description" content="Alexandre Lemaire, ingénieur électronique senior — 10 ans d'expérience, systèmes embarqués & IoT, du prototypage à l'industrialisation. Portfolio, CV et book à télécharger.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -94,6 +94,17 @@ section[id]{scroll-margin-top:20px}
 .jalon h3{margin-bottom:4px}
 .jalon p{font-size:14.5px;color:var(--texte)}
 
+/* ---------- Formation ---------- */
+.form-item{margin-bottom:18px}
+.form-item:last-child{margin-bottom:0}
+.form-item .annee{display:block;font-size:13px;font-weight:700;color:var(--bleu-accent);margin-bottom:2px}
+.form-item h3{font-size:16.5px;margin-bottom:2px}
+.form-item p{font-size:14.5px;color:var(--texte-doux)}
+
+/* ---------- Au-delà de la technique ---------- */
+.perso{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px}
+.perso .carte p{margin-bottom:0}
+
 /* ---------- Téléchargements ---------- */
 .dl-carte{align-items:flex-start}
 .dl-carte .icone{font-size:30px;margin-bottom:10px}
@@ -119,7 +130,7 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
   .side-nav,.titre-sommaire{display:none}
   main{padding:40px 24px}
   h1{font-size:32px}
-  .c3,.c2{grid-template-columns:1fr}
+  .c3,.c2,.perso{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr);gap:18px}
   .timeline{margin-left:8px}
   .jalon .dates{position:static;width:auto;text-align:left;display:block;margin-bottom:2px}
@@ -146,14 +157,15 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
       <div class="side-dl">
         <a class="btn" href="assets/cv.pdf" download>CV (PDF)</a>
         <a class="btn" href="assets/book.pdf" download>Book · Portfolio (PDF)</a>
-        <a class="btn secondaire" href="assets/cv-ats.pdf" download>CV ATS (PDF)</a>
       </div>
       <div class="side-titre titre-sommaire">Sommaire</div>
       <nav class="side-nav">
         <a href="#realisations">Mes réalisations</a>
         <a href="#outils">Outils &amp; bancs de test</a>
         <a href="#parcours">Mon parcours</a>
+        <a href="#formation">Formation</a>
         <a href="#competences">Compétences</a>
+        <a href="#hors-technique">Au-delà de la technique</a>
         <a href="#telechargements">Téléchargements</a>
       </nav>
     </div>
@@ -166,9 +178,9 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
 <!-- Hero -->
 <section id="haut">
   <div class="surtitre">Book · Portfolio 2026</div>
-  <h1>Ingénieur Électronique</h1>
+  <h1>Ingénieur Électronique Senior</h1>
   <div class="soustitre">10 ans d'expérience · Systèmes embarqués &amp; IoT · du prototypage à l'industrialisation</div>
-  <p class="intro">Je conçois et j'industrialise des produits électroniques, du POC à la série. J'aime autant concevoir un produit que les outils et les bancs de test qui le fiabilisent — et démêler les problèmes de production et d'assemblage.</p>
+  <p class="intro">Je conçois et j'industrialise des produits électroniques : j'aime autant faire naître les premiers prototypes que concevoir la ligne de production. J'aime aussi construire les outils et les bancs de test qui fiabilisent un produit — et démêler les problèmes de production et d'assemblage.</p>
   <div class="stats">
     <div class="stat"><b>3</b><span>Produits industrialisés</span></div>
     <div class="stat"><b>+10</b><span>Produits / projets prototypés</span></div>
@@ -208,7 +220,7 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
       <h3>Bugali — console jeunesse</h3>
       <p>Architecture, PCBs, bancs de test, certifications : product owner de la console jusqu'à l'usine.</p>
       <p class="liens"><a href="https://shop.bugali.com/products/la-bugali" target="_blank" rel="noopener">shop.bugali.com</a></p>
-      <div class="resultat">2024 · 15 000 unités · SAV &lt; 2 %</div>
+      <div class="resultat">2024 · 15 000 consoles · 200 000 livres · 97 % de couverture de test · SAV &lt; 2 %</div>
     </div>
     <div class="carte">
       <div class="video">
@@ -217,7 +229,7 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
       <h3>Monimalz — tirelire connectée</h3>
       <p>Cartes V1 et V2, monnayeur breveté, industrialisation et certifications en Chine.</p>
       <p class="liens"><a href="https://www.youtube.com/watch?v=1kolCs9WSbE" target="_blank" rel="noopener">vidéo CES 2018 ↗</a></p>
-      <div class="resultat">2019 · 1 000 unités · vendues Au Bon Marché</div>
+      <div class="resultat">2017 · présérie de 100 unités au CES · 2019 · 1 000 unités vendues Au Bon Marché</div>
     </div>
     <div class="carte">
       <div class="media"><img src="assets/img/fileter.jpg" alt="Boîtier de fer à fileter" style="object-fit:contain;background:#fff"></div>
@@ -273,6 +285,13 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
       <div class="resultat">fonctionnel et communicant</div>
     </div>
     <div class="carte">
+      <div class="media"><img src="assets/img/am3000.jpg" alt="AM3000 — détecteur d'amiante"></div>
+      <div class="badge-annee">2017</div>
+      <h3>AM3000 — détecteur d'amiante</h3>
+      <p>Cartes prototypes et portage du code Pascal vers C sur dsPIC, pour SDEC.</p>
+      <div class="resultat">le client repart sur un nouveau design avec le µC validé</div>
+    </div>
+    <div class="carte">
       <div class="media"><img src="assets/img/beeonline.jpg" alt="Ruche connectée Beeonline" style="object-fit:contain;background:#fff"></div>
       <div class="badge-annee">2015</div>
       <h3>Ruche connectée Beeonline</h3>
@@ -309,12 +328,61 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
   <h2>Mon parcours</h2>
   <p class="chapo">Dix ans entre bureau d'études et usine, du prototype à la série.</p>
   <div class="timeline">
-    <div class="jalon"><span class="dates">2025 – 2026</span><h3>Indépendant</h3><p>Formation Python &amp; data (Pandas, Jupyter), un projet électronique sous KiCad, et du conseil pour des projets amis.</p></div>
-    <div class="jalon"><span class="dates">2021 – 2025</span><h3>Bugali — Ingénieur électronique puis Hardware Manager</h3><p>Verrous techniques de la console, architecture, industrialisation et certifications, jusqu'à la production en série en France.</p></div>
-    <div class="jalon"><span class="dates">2019 – 2021</span><h3>Freelance</h3><p>POC Bugali, powerbank 66origin, brassard Captain Blink, accompagnement d'étudiants aux Gobelins.</p></div>
-    <div class="jalon"><span class="dates">2017 – 2019</span><h3>LetMeKnow — Bureau d'études IoT</h3><p>Monimalz V1 et V2 pour Yellow Innovation (La Poste) : présérie présentée au CES 2018, puis série industrialisée en Chine.</p></div>
-    <div class="jalon"><span class="dates">2014 – 2017</span><h3>Atelec Électronique — BE prototypage &amp; petites séries</h3><p>Boîtier de fer à fileter industrialisé, ruche connectée, détecteur d'amiante, support production.</p></div>
+    <div class="jalon"><span class="dates">2025 – 2026</span><h3>Indépendant</h3><p>Formation Python &amp; analyse de données (Pandas, Jupyter) et bases du web et de Figma. Développement d'une application de gestion de tournoi de football, un projet électronique sous KiCad, et du conseil pour des projets amis.</p></div>
+    <div class="jalon"><span class="dates">09/2021 – 03/2025</span><h3>Bugali — Ingénieur électronique puis Hardware Manager</h3><p>Verrous techniques de la console, architecture, industrialisation et certifications, jusqu'à la production en série en France. Product owner de la console et interface avec les usines.</p></div>
+    <div class="jalon"><span class="dates">09/2019 – 09/2021</span><h3>Freelance</h3><p>POC Bugali, powerbank 66origin, brassard Captain Blink, accompagnement d'étudiants aux Gobelins.</p></div>
+    <div class="jalon"><span class="dates">05/2017 – 12/2019</span><h3>LetMeKnow — Bureau d'études IoT</h3><p>Monimalz V1 et V2 pour Yellow Innovation (La Poste) : présérie présentée au CES 2018, puis série industrialisée en Chine.</p></div>
+    <div class="jalon"><span class="dates">12/2014 – 03/2017</span><h3>Atelec Électronique — BE prototypage &amp; petites séries</h3><p>Boîtier de fer à fileter industrialisé, ruche connectée, détecteur d'amiante, support production.</p></div>
     <div class="jalon"><span class="dates">2014</span><h3>Prynt · Incubateur HAX, Shenzhen</h3><p>3 mois auprès d'une startup développant une imprimante pour smartphone, au cœur de l'écosystème hardware chinois.</p></div>
+  </div>
+</section>
+
+<!-- Formation -->
+<section id="formation">
+  <h2>Formation</h2>
+  <p class="chapo">Un parcours par la voie technique, du BTS à l'école d'ingénieur.</p>
+  <div class="cartes c2">
+    <div class="carte">
+      <h3 style="font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--bleu-accent);margin-bottom:16px">Diplômes</h3>
+      <div class="form-item">
+        <span class="annee">2014</span>
+        <h3>Diplôme d'ingénieur généraliste en électronique</h3>
+        <p>ENSEA, Cergy — spécialisation Réseaux &amp; Télécoms ; options robotique et mécatronique.</p>
+      </div>
+      <div class="form-item">
+        <span class="annee">2011</span>
+        <h3>Classe préparatoire ATS</h3>
+        <p>Lycée Gustave Eiffel, Bordeaux.</p>
+      </div>
+      <div class="form-item">
+        <span class="annee">2010</span>
+        <h3>BTS Systèmes électroniques</h3>
+        <p>Lycée Grandmont, Tours.</p>
+      </div>
+      <div class="form-item">
+        <span class="annee">2008</span>
+        <h3>Bac STI Génie électronique</h3>
+        <p>Lycée Saint-Gatien, Tours.</p>
+      </div>
+    </div>
+    <div class="carte">
+      <h3 style="font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--bleu-accent);margin-bottom:16px">Stages ENSEA</h3>
+      <div class="form-item">
+        <span class="annee">2014 · 6 mois</span>
+        <h3>Cirpack — stage de fin d'études</h3>
+        <p>Portage de code DSP sur les gateways d'interconnexion réseau.</p>
+      </div>
+      <div class="form-item">
+        <span class="annee">2013 · 3 mois</span>
+        <h3>Faiveley Transport</h3>
+        <p>Module en C sur µC 9S12 (Freescale) pour reprogrammer des CPLD par I2C.</p>
+      </div>
+      <div class="form-item">
+        <span class="annee">2012 · 3 mois</span>
+        <h3>Vermon — stage de production</h3>
+        <p>Polarisation de transducteurs à ultrasons pour échographes.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -323,20 +391,37 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
   <h2>Compétences</h2>
   <p class="chapo">Ce que je sais faire — et les outils qui vont avec.</p>
   <div class="cartes c3">
-    <div class="carte"><h3>Conception électronique</h3><p>Architecture · choix et dimensionnement des composants · schéma et routage multicouche et flex (Eagle, Fusion 360, Altium, KiCad) · intégration électro-mécanique, lecture 3D.</p></div>
+    <div class="carte"><h3>Conception électronique</h3><p>Architecture · choix, sourcing et dimensionnement des composants · schéma et routage multicouche et flex (Eagle, Fusion 360, Altium, KiCad) · alimentation à découpage, régulateur, power tree.</p></div>
     <div class="carte"><h3>Prototypage &amp; test</h3><p>Assemblage · soudure, câblage · mesure · validation fonctionnelle · bancs de test.</p></div>
     <div class="carte"><h3>Industrialisation</h3><p>DFM, DFA, DFT · AMDEC · BOM et dossiers de production · pilotage EMS · certification CE / CEM / RF · suivi de production.</p></div>
+    <div class="carte"><h3>Mécatronique</h3><p>Lecture 3D et contraintes de fabrication · intégration électro-mécanique · spécification des bancs et des outillages.</p></div>
     <div class="carte"><h3>µC, SOM &amp; langages</h3><p>STM32 · ESP32 · SOM i.MX6 · nRF52840 · SAMD21 · PIC · ATMEGA · C · Arduino · Python · LabVIEW · Pandas, Jupyter, Grafana.</p></div>
     <div class="carte"><h3>Connectivité &amp; produits connectés</h3><p>I2C / SPI / UART / CAN / USB / I2S · BLE · Wi-Fi · GSM · RFID · trois produits liés à leur app.</p></div>
     <div class="carte"><h3>Méthodes &amp; outils</h3><p>Bibliothèques de composants · design reviews · documentation (CIR, dossiers) · Jira · Confluence · GitHub.</p></div>
   </div>
 </section>
 
+<!-- Au-delà de la technique -->
+<section id="hors-technique">
+  <h2>Au-delà de la technique</h2>
+  <p class="chapo">Ce qui m'occupe en dehors des cartes électroniques.</p>
+  <div class="perso">
+    <div class="carte">
+      <h3>Football</h3>
+      <p>Président, coach et joueur du Paris Clichy FC depuis 2018 — foot à 7, 35 joueurs, 3 équipes. Coach de 2012 à 2017 à l'ENSEA, catégorie U18.</p>
+    </div>
+    <div class="carte">
+      <h3>Langues &amp; sport</h3>
+      <p>Français natif · anglais technique (documentation, fournisseurs, EMS). Course à pied et vélo.</p>
+    </div>
+  </div>
+</section>
+
 <!-- Téléchargements -->
 <section id="telechargements">
   <h2>Téléchargements</h2>
-  <p class="chapo">Mon dossier de candidature, en trois formats.</p>
-  <div class="cartes c3">
+  <p class="chapo">Mon dossier de candidature, en deux documents.</p>
+  <div class="cartes c2">
     <div class="carte dl-carte">
       <div class="icone">📄</div>
       <h3>CV</h3>
@@ -349,15 +434,6 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
       <p>9 pages de projets illustrés : Bugali, Monimalz, Atelec, freelance, bancs de test.</p>
       <div class="btns"><a class="btn" href="assets/book.pdf" download>Télécharger le PDF</a></div>
     </div>
-    <div class="carte dl-carte">
-      <div class="icone">🤖</div>
-      <h3>CV ATS</h3>
-      <p>Version sobre en une colonne, optimisée pour les logiciels de recrutement.</p>
-      <div class="btns">
-        <a class="btn" href="assets/cv-ats.pdf" download>PDF</a>
-        <a class="btn secondaire" href="assets/CV_ATS_Alexandre_Lemaire.docx" download>DOCX</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -365,7 +441,7 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
 <section>
   <div class="bandeau">
     <h2>Ce que je recherche</h2>
-    <p>Un poste de responsable hardware ou d'ingénieur électronique senior, dans une équipe pluridisciplinaire : électronique, mécanique, logiciel, expérience utilisateur.</p>
+    <p>Un produit et une équipe pluridisciplinaire à accompagner comme ingénieur électronique senior ou product owner hardware : électronique, mécanique, logiciel, expérience utilisateur.</p>
     <a class="btn" href="mailto:alexlemaire.a@gmail.com">Me contacter</a>
   </div>
 </section>

@@ -1,6 +1,6 @@
 # alexlmhw.github.io
 
-Site vitrine — Alexandre Lemaire, ingénieur électronique.
+Site vitrine — Alexandre Lemaire, ingénieur électronique senior.
 
 En ligne : https://alexlmhw.github.io
 
@@ -10,4 +10,3 @@ Les boutons du site pointent vers des noms de fichiers fixes. Remplacer le fichi
 
 - `assets/cv.pdf` — CV
 - `assets/book.pdf` — book / portfolio
-- `assets/cv-ats.pdf` — CV ATS
