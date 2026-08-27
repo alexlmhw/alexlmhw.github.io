@@ -15,7 +15,7 @@ RACINE = Path(__file__).resolve().parent.parent
 PAGES_ATTENDUES = ["index.html", "outils.html", "bugali.html", "monimalz.html", "fer-a-fileter.html"]
 
 # Active a la tache 10, quand les 5 pages portent le meme menu.
-VERIFIER_MENU = False
+VERIFIER_MENU = True
 MENU_DEBUT = "<!-- MENU:DEBUT -->"
 MENU_FIN = "<!-- MENU:FIN -->"
 

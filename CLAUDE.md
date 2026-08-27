@@ -8,8 +8,14 @@ publiée telle quelle, sans build ni générateur de site.
 
 ## Structure
 
-- `index.html` — **tout le site**. Page unique, CSS inline dans un `<style>`,
-  aucune dépendance JS. La seule ressource externe est la police Lato (Google Fonts).
+- `index.html` — accueil. Contenu complet : réalisations, prototypes, parcours,
+  formation, compétences, téléchargements.
+- `bugali.html`, `monimalz.html`, `fer-a-fileter.html`, `outils.html` — pages de
+  détail. Elles partagent le gabarit de `outils.html` (head, sidebar, footer).
+- `assets/style.css` — **tous** les styles, partagés par les 5 pages. Aucun
+  `<style>` inline ne doit réapparaître dans une page.
+- `tools/check_site.py` — vérifications structurelles. À lancer après toute
+  modification : `python tools/check_site.py`.
 - `assets/cv.pdf`, `assets/book.pdf` — documents téléchargeables. **Fournis par
   Alexandre**, jamais générés ici. Les noms de fichiers sont fixes : pour publier une
   nouvelle version, on remplace le fichier, on ne renomme pas.
@@ -17,6 +23,18 @@ publiée telle quelle, sans build ni générateur de site.
 - `Input/` — **gitignoré**. Sources de travail d'Alexandre (CV `.docx`, book `.pptx`).
   C'est la référence de contenu : le site doit refléter le CV le plus récent qui s'y
   trouve. Ne jamais committer ce dossier.
+
+## Le menu est dupliqué — règle impérative
+
+Le site est en HTML pur, sans générateur : le menu existe en **5 exemplaires
+identiques**, délimités par `<!-- MENU:DEBUT -->` et `<!-- MENU:FIN -->`.
+
+**Ajouter, renommer ou retirer une entrée de menu impose de modifier les 5
+fichiers :** `index.html`, `bugali.html`, `monimalz.html`, `fer-a-fileter.html`,
+`outils.html`.
+
+Seule différence autorisée entre les cinq : le `class="actif"` sur le lien de la
+page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
 
 ## Conventions
 
