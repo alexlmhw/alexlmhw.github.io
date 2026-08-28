@@ -26,10 +26,18 @@ img{max-width:100%;display:block;height:auto}
 .saut:focus{left:0}
 
 /* ---------- Layout ---------- */
-.page{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
-.sidebar{background:var(--sidebar);padding:44px 28px;border-right:1px solid var(--bordure)}
-.sidebar-inner{position:sticky;top:36px}
-main{padding:52px 56px 30px;max-width:1080px}
+/* Deux zones dans la colonne de gauche : l'identite et le menu en haut (zone
+   "side"), le contact et les telechargements en dessous (zone "side2"). Sur
+   mobile, side2 passe APRES le contenu — voir le bloc @media. */
+.page{display:grid;grid-template-columns:300px 1fr;
+      grid-template-rows:auto auto 1fr;
+      grid-template-areas:"side main" "side2 main" "vide main";min-height:100vh;
+      /* Le fond de la colonne gauche et son filet sont peints par le conteneur :
+         les deux blocs de sidebar ne s'etirent donc pas pour le couvrir. */
+      background:linear-gradient(to right,var(--sidebar) 0 300px,var(--bordure) 300px 301px,var(--fond) 301px)}
+.sidebar{grid-area:side;align-self:start;padding:44px 28px 0}
+.sidebar-bas{grid-area:side2;align-self:start;padding:26px 28px 44px}
+main{grid-area:main;padding:52px 56px 30px;max-width:1080px}
 
 /* ---------- Sidebar ---------- */
 .photo{width:170px;height:170px;border-radius:50%;object-fit:cover;margin:0 auto 18px}
@@ -165,11 +173,22 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
 
 /* ---------- Responsive ---------- */
 @media (max-width:980px){
-  .page{grid-template-columns:1fr}
-  .sidebar{border-right:0;border-bottom:1px solid var(--bordure);padding:30px 24px}
-  .sidebar-inner{position:static;display:grid;grid-template-columns:auto 1fr;gap:0 28px;max-width:640px;margin:0 auto}
-  .photo{width:110px;height:110px;grid-row:span 2;margin:0}
-  .side-nom{text-align:left;margin-bottom:8px}
+  /* Le contact et les telechargements passent SOUS le contenu : ils ne servent
+     qu'apres lecture, et occupaient 39 % de la hauteur du premier ecran. */
+  .page{grid-template-columns:1fr;grid-template-rows:auto auto auto;
+        grid-template-areas:"side" "main" "side2";background:none}
+  .sidebar{background:var(--sidebar);border-bottom:1px solid var(--bordure);padding:18px 24px}
+  .sidebar-bas{background:var(--sidebar);border-top:1px solid var(--bordure);padding:24px}
+  .sidebar-bas-inner{max-width:640px;margin:0 auto}
+  /* Identite compactee : petite photo alignee avec le nom, menu en dessous. */
+  .sidebar-inner{position:static;display:grid;grid-template-columns:auto 1fr;gap:0 16px;
+                 align-items:center;max-width:640px;margin:0 auto}
+  .photo{width:64px;height:64px;margin:0}
+  .side-nom{text-align:left;margin:0;font-size:17px;line-height:1.2}
+  .side-nom br{display:none}
+  .sidebar-inner > div:last-child{grid-column:1 / -1}
+  .sidebar .side-titre{margin:16px 0 8px}
+  .sidebar-bas .side-titre:first-child{margin-top:0}
   .side-nav{display:none}
   main{padding:40px 24px}
   h1{font-size:32px}
