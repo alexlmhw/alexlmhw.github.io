@@ -13,7 +13,12 @@ from pathlib import Path
 RACINE = Path(__file__).resolve().parent.parent
 
 # Complete au fil des taches du plan.
-PAGES_ATTENDUES = ["index.html", "outils.html", "bugali.html", "monimalz.html", "fer-a-fileter.html"]
+PAGES_ATTENDUES = ["index.html", "outils.html", "bugali.html", "monimalz.html",
+                   "fer-a-fileter.html", "404.html"]
+
+# Pages qui portent le menu mais n'y figurent pas : aucune entree ne peut donc y
+# etre marquee active. GitHub Pages sert 404.html pour toute adresse inconnue.
+PAGES_SANS_ENTREE_MENU = {"404.html"}
 
 # Active a la tache 10, quand les 5 pages portent le meme menu.
 VERIFIER_MENU = True
@@ -185,7 +190,12 @@ def main():
         if VERIFIER_MENU:
             menus[nom] = bloc_menu(texte)
             actifs = entree_active(texte)
-            if actifs is not None and (len(actifs) != 1 or actifs[0] != nom):
+            if actifs is None:
+                pass
+            elif nom in PAGES_SANS_ENTREE_MENU:
+                if actifs:
+                    erreur(nom, "aucune entree de menu ne doit etre marquee active")
+            elif len(actifs) != 1 or actifs[0] != nom:
                 erreur(nom, "le menu marque la mauvaise entree active")
 
     for titre, fichiers in titres.items():
