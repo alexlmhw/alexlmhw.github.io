@@ -72,6 +72,15 @@ page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
   `--vert`…). Ne pas coder de couleur en dur.
 - Les cartes projet utilisent `.carte` ; le chiffre de résultat en vert est
   `.resultat` et doit rester factuel (unités produites, taux de SAV…).
+- **La sidebar est en deux morceaux**, et c'est volontaire : `<aside class="sidebar">`
+  (photo, nom, menu) avant `<main>`, et `<aside class="sidebar-bas">` (contact,
+  téléchargements) **après** `</main>`. La grille `.page` les replace par zones :
+  côte à côte dans la colonne gauche en desktop, mais en mobile le bloc du bas
+  passe sous le contenu. Sans ça, la sidebar mangeait tout le premier écran d'un
+  téléphone (703 px sur 812) et le titre n'apparaissait qu'après défilement.
+- Le fond coloré de la colonne gauche et son filet sont peints par un dégradé sur
+  `.page`, pas par les deux `<aside>` : sinon il aurait fallu les étirer sur toute
+  la hauteur de la page, ce qui replaçait le contact tout en bas.
 - Responsive : un seul point de rupture, `@media (max-width:980px)`, qui fait
   passer la sidebar en bandeau horizontal et les grilles en une colonne.
 
