@@ -34,6 +34,8 @@ MOTIF_TITRE = re.compile(r"<title>(.*?)</title>", re.S)
 MOTIF_DESC = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"')
 MOTIF_ID = re.compile(r'id\s*=\s*"([^"]+)"')
 MOTIF_MENU_LIEN = re.compile(r'<a\s+href=(["\'])([^\1]+?)\1([^>]*)>')
+# Attributs dont la valeur est du texte lu par un humain ou un moteur.
+MOTIF_ATTR_TEXTE = re.compile(r'\b(alt|title|aria-label|content)="([^"]*)"')
 
 erreurs = []
 
@@ -158,6 +160,17 @@ def main():
         ):
             if motif not in texte:
                 erreur(nom, manque)
+
+        # Typographie francaise : apostrophe courbe partout ou le texte est lu par
+        # un humain ou un moteur. On couvre le texte hors balises, plus les
+        # attributs porteurs de texte. Les autres attributs (href, class, style)
+        # sont ignores : une apostrophe y serait legitime.
+        suspects = [m for m in re.split(r"(<[^>]*>)", texte)
+                    if not m.startswith("<") and "'" in m]
+        suspects += [v for _, v in MOTIF_ATTR_TEXTE.findall(texte) if "'" in v]
+        if suspects:
+            erreur(nom, "apostrophe droite dans le texte : "
+                        + " ".join(suspects[0].split())[:40])
 
         # Un saut de niveau de titre (h1 -> h3 par exemple) casse la navigation
         # au lecteur d'ecran. On verifie la continuite de la hierarchie.

@@ -43,8 +43,11 @@ page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
 
 ## Conventions
 
-- Langue du site : **français**, avec les apostrophes typographiques (`’` dans les
-  sources d'origine ; l'ASCII `'` est utilisé dans le HTML pour rester simple).
+- Langue du site : **français**, avec les apostrophes typographiques `’` partout
+  dans le texte visible et dans les attributs porteurs de texte (`alt`, `title`,
+  `aria-label`, `content`). L'apostrophe ASCII `'` ne doit plus apparaître dans le
+  HTML des 5 pages — elle reste normale dans le code (`tools/check_site.py`) et
+  dans ce fichier. En rédigeant une nouvelle page, écrire directement `’`.
 - Structure de `index.html` : une `<section id="...">` par bloc. La plupart sont
   reprises dans la liste d'ancres de la sidebar (`.side-nav`) — ajouter une section
   de contenu implique en général d'ajouter son lien. Exceptions : `#haut` (le hero)
