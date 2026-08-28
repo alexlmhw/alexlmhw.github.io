@@ -145,6 +145,30 @@ def main():
         if not MOTIF_DESC.search(texte):
             erreur(nom, "meta description absente")
 
+        # Balises indispensables au partage (LinkedIn, Slack, mail) et a l'accessibilite.
+        for motif, manque in (
+            ('rel="canonical"', "lien canonical absent"),
+            ('property="og:title"', "balise og:title absente"),
+            ('property="og:description"', "balise og:description absente"),
+            ('property="og:image"', "balise og:image absente"),
+            ('property="og:url"', "balise og:url absente"),
+            ('rel="icon"', "favicon absent"),
+            ('class="saut"', "lien d'evitement absent"),
+            ('<main id="contenu">', "ancre #contenu du lien d'evitement absente"),
+        ):
+            if motif not in texte:
+                erreur(nom, manque)
+
+        # Un saut de niveau de titre (h1 -> h3 par exemple) casse la navigation
+        # au lecteur d'ecran. On verifie la continuite de la hierarchie.
+        niveaux = [int(n) for n in re.findall(r"<h([1-6])[^>]*>", texte.split("<main", 1)[-1])]
+        precedent = None
+        for n in niveaux:
+            if precedent is not None and n > precedent + 1:
+                erreur(nom, "saut de niveau de titre h{} -> h{}".format(precedent, n))
+                break
+            precedent = n
+
         if VERIFIER_MENU:
             menus[nom] = bloc_menu(texte)
             actifs = entree_active(texte)

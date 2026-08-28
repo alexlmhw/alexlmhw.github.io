@@ -20,6 +20,11 @@ publiée telle quelle, sans build ni générateur de site.
   Alexandre**, jamais générés ici. Les noms de fichiers sont fixes : pour publier une
   nouvelle version, on remplace le fichier, on ne renomme pas.
 - `assets/img/` — photos des projets, référencées depuis les 5 pages.
+- `assets/img/partage.jpg` — **image d'aperçu au partage** (Open Graph), 1200×630.
+  C'est elle qui s'affiche quand le lien est posté sur LinkedIn, Slack ou envoyé par
+  mail. Générée à partir de `bugali.jpg`, sans recadrage. Pour la remplacer, garder
+  le format 1200×630 et le même nom de fichier.
+- `favicon.ico` (racine) et `assets/img/apple-touch-icon.png` — icônes d'onglet.
 - `Input/` — **gitignoré**. Sources de travail d'Alexandre (CV `.docx`, book `.pptx`).
   C'est la référence de contenu : le site doit refléter le CV le plus récent qui s'y
   trouve. Ne jamais committer ce dossier.
@@ -59,6 +64,22 @@ page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
   `.resultat` et doit rester factuel (unités produites, taux de SAV…).
 - Responsive : un seul point de rupture, `@media (max-width:980px)`, qui fait
   passer la sidebar en bandeau horizontal et les grilles en une colonne.
+
+## Partage et accessibilité — à ne pas casser
+
+Chaque page porte, en plus de son `<title>` et de sa `meta description` :
+
+- un bloc **Open Graph** (`og:title`, `og:description`, `og:url`, `og:image`) et un
+  `rel="canonical"`. Sans lui, un lien partagé sur LinkedIn s'affiche en URL nue.
+  `og:url` et `og:image` sont les **seules URL absolues** autorisées du site.
+- un **lien d'évitement** `<a class="saut" href="#contenu">` en tout début de
+  `<body>`, et l'ancre correspondante `<main id="contenu">`.
+- une **hiérarchie de titres continue** : pas de saut `h1 → h3`. Les libellés
+  « Rôle / Équipe / Stack » des pages de détail sont des `<h2>` stylés petits par
+  `.meta-bloc h2`, et non des `<h4>`.
+
+`check_site.py` vérifie ces trois points sur les 5 pages. Une nouvelle page qui les
+oublie fait échouer la vérification.
 
 ## Règles de contenu
 
