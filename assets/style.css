@@ -76,8 +76,10 @@ section[id]{scroll-margin-top:20px}
 .c3{grid-template-columns:repeat(3,1fr)}
 .c2{grid-template-columns:repeat(2,1fr)}
 .carte{background:var(--carte);border:1px solid var(--bordure);border-radius:10px;padding:20px;display:flex;flex-direction:column}
-.carte .media{border-radius:8px;overflow:hidden;background:#fff;margin-bottom:14px;border:1px solid var(--bordure)}
-.carte .media img{width:100%;height:190px;object-fit:cover}
+/* .media n'est plus reserve aux cartes : les blocs .phase l'utilisent aussi. */
+.media{border-radius:8px;overflow:hidden;background:#fff;margin-bottom:14px;border:1px solid var(--bordure)}
+.media img{width:100%;height:190px;object-fit:cover}
+.legende{font-size:12.5px;color:var(--texte-doux);margin:-8px 0 14px}
 .carte p{font-size:14.5px;margin-bottom:10px}
 .carte .resultat{margin-top:auto;font-size:14px;font-weight:700;color:var(--vert)}
 .carte .liens{margin:4px 0 10px;font-size:14px}
@@ -154,6 +156,9 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
 .phase{border-left:3px solid var(--bleu-clair);padding-left:22px;margin-bottom:34px;max-width:860px}
 .phase-num{font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--bleu-accent);margin-bottom:4px}
 .phase h3{font-size:20px;margin-bottom:6px}
+.phase .media{max-width:540px;margin:16px 0 6px}
+.phase .media img{height:250px}
+.phase .legende{max-width:540px;margin:0 0 4px}
 .phase ul{margin:10px 0 0 18px}
 .phase li{font-size:14.5px;margin-bottom:6px}
 .nav-bas{display:flex;gap:12px;flex-wrap:wrap;border-top:1px solid var(--bordure);padding-top:24px;margin-top:20px}

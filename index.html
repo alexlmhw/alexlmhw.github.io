@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://alexlmhw.github.io/assets/img/partage.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="La console Bugali et ses livres jeunesse">
+<meta property="og:image:alt" content="Prototype de la tirelire Monimalz, sa matrice de 360 LED en fonctionnement">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,13 +34,6 @@
     <img class="photo" src="assets/img/photo.jpg" width="700" height="700" alt="Portrait d’Alexandre Lemaire">
     <div class="side-nom">ALEXANDRE<br>LEMAIRE</div>
     <div>
-      <div class="side-titre">Contact</div>
-      <ul>
-        <li>Paris, France · Permis B</li>
-        <li><a href="mailto:alexlemaire.a@gmail.com">alexlemaire.a@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/alexandre-lemaire/" target="_blank" rel="noopener">linkedin.com/in/alexandre-lemaire</a></li>
-        <li><a href="https://github.com/AlexLmHw" target="_blank" rel="noopener">github.com/AlexLmHw</a></li>
-      </ul>
       <div class="side-titre">Le site</div>
       <!-- MENU:DEBUT -->
       <nav class="side-menu">
@@ -61,6 +54,13 @@
         <a href="fer-a-fileter.html">Boîtier fer à fileter</a>
       </nav>
       <!-- MENU:FIN -->
+      <div class="side-titre">Contact</div>
+      <ul>
+        <li>Paris, France · Permis B</li>
+        <li><a href="mailto:alexlemaire.a@gmail.com">alexlemaire.a@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/alexandre-lemaire/" target="_blank" rel="noopener">linkedin.com/in/alexandre-lemaire</a></li>
+        <li><a href="https://github.com/AlexLmHw" target="_blank" rel="noopener">github.com/AlexLmHw</a></li>
+      </ul>
       <div class="side-titre">Téléchargements</div>
       <div class="side-dl">
         <a class="btn" href="assets/cv.pdf" download>CV (PDF)</a>
@@ -113,35 +113,35 @@
   <p class="chapo">Dix ans de produits : trois industrialisés, une dizaine de prototypes qui ont vécu.</p>
 
   <div class="bandeau-projet">
-    <div class="visuel"><img src="assets/img/bugali.jpg" width="900" height="674" alt="Console Bugali avec ses livres"></div>
+    <div class="visuel"><img src="assets/img/bugali.jpg" width="900" height="674" loading="lazy" alt="Console Bugali avec ses livres"></div>
     <div class="corps">
       <div class="badge-annee">2021 – 2025</div>
       <h3>Bugali — console jeunesse</h3>
       <p>Architecture, PCBs, bancs de test, certifications : product owner de la console jusqu’à l’usine, puis interface avec les usines comme Hardware Manager.</p>
       <div class="resultat">15 000 consoles · 200 000 livres · 97 % de couverture de test · SAV &lt; 2 %</div>
-      <a class="btn" href="bugali.html" aria-label="Voir Bugali, la console jeunesse en détail">Voir le projet en détail →</a>
+      <a class="btn" href="bugali.html" aria-label="Voir Bugali, la console jeunesse, en détail">Voir le projet en détail →</a>
     </div>
   </div>
 
   <div class="bandeau-projet">
-    <div class="visuel"><img src="assets/img/monimalz.jpg" width="900" height="675" alt="Monimalz — tirelire connectée"></div>
+    <div class="visuel"><img src="assets/img/monimalz.jpg" width="900" height="675" loading="lazy" alt="Monimalz — tirelire connectée"></div>
     <div class="corps">
       <div class="badge-annee">2017 – 2019</div>
       <h3>Monimalz — tirelire connectée</h3>
       <p>Cartes V1 et V2, monnayeur breveté, industrialisation et certifications en Chine, pour Yellow Innovation — le lab d’innovation de La Poste.</p>
       <div class="resultat">présérie de 100 unités au CES 2018 · 1 000 unités vendues Au Bon Marché</div>
-      <a class="btn" href="monimalz.html" aria-label="Voir Monimalz, la tirelire connectee en détail">Voir le projet en détail →</a>
+      <a class="btn" href="monimalz.html" aria-label="Voir Monimalz, la tirelire connectée, en détail">Voir le projet en détail →</a>
     </div>
   </div>
 
   <div class="bandeau-projet">
-    <div class="visuel"><img src="assets/img/fileter.jpg" width="460" height="345" alt="Boîtier de fer à fileter" style="object-fit:contain;background:#fff"></div>
+    <div class="visuel"><img src="assets/img/fileter.jpg" width="460" height="345" loading="lazy" alt="Boîtier de fer à fileter" style="object-fit:contain;background:#fff"></div>
     <div class="corps">
       <div class="badge-annee">2014 – 2017</div>
       <h3>Boîtier fer à fileter — maroquinerie</h3>
       <p>Passage de l’analogique au microcontrôleur, firmwares des trois variantes, DFM / DFA / DFT et mise en production.</p>
       <div class="resultat">≈ 3 000 pièces/an · toujours en production</div>
-      <a class="btn" href="fer-a-fileter.html" aria-label="Voir le boitier fer a fileter en détail">Voir le projet en détail →</a>
+      <a class="btn" href="fer-a-fileter.html" aria-label="Voir le boîtier fer à fileter en détail">Voir le projet en détail →</a>
     </div>
   </div>
 
@@ -288,8 +288,9 @@
     <div class="carte"><h3>Conception électronique</h3><p>Architecture · choix, sourcing et dimensionnement des composants · schéma et routage multicouche et flex (Eagle, Fusion 360, Altium, KiCad) · alimentation à découpage, régulateur, power tree.</p></div>
     <div class="carte"><h3>Prototypage &amp; test</h3><p>Assemblage · soudure, câblage · mesure · validation fonctionnelle · bancs de test.</p></div>
     <div class="carte"><h3>Industrialisation</h3><p>DFM, DFA, DFT · AMDEC · BOM et dossiers de production · pilotage EMS · certification CE / CEM / RF · suivi de production.</p></div>
+    <div class="carte"><h3>µC &amp; SOM</h3><p>STM32 · ESP32 · SOM i.MX6 · nRF52840 · SAMD21 · PIC · ATMEGA.</p></div>
+    <div class="carte"><h3>Programmation &amp; données</h3><p>C · Arduino · Python · LabVIEW · Pandas, Jupyter, Grafana.</p></div>
     <div class="carte"><h3>Mécatronique</h3><p>Lecture 3D et contraintes de fabrication · intégration électro-mécanique · spécification des bancs et des outillages.</p></div>
-    <div class="carte"><h3>µC, SOM &amp; programmation</h3><p>STM32 · ESP32 · SOM i.MX6 · nRF52840 · SAMD21 · PIC · ATMEGA · C · Arduino · Python · LabVIEW · Pandas, Jupyter, Grafana.</p></div>
     <div class="carte"><h3>Connectivité &amp; produits connectés</h3><p>I2C / SPI / UART / CAN / USB / I2S · BLE · Wi-Fi · GSM · RFID · trois produits liés à leur app.</p></div>
     <div class="carte"><h3>Méthodes &amp; outils</h3><p>Bibliothèques de composants · design reviews · documentation (CIR, dossiers) · Jira · Confluence · GitHub.</p></div>
     <div class="carte"><h3>Langues</h3><p>Français natif · anglais technique : documentation, fournisseurs, EMS.</p></div>
@@ -303,7 +304,7 @@
   <div class="perso">
     <div class="carte">
       <h3>Football</h3>
-      <p>Président, coach et joueur du Paris Clichy FC depuis 2018 — foot à 7, 35 joueurs, 3 équipes. Coach de 2012 à 2017 à l’ENSEA, catégorie U18.</p>
+      <p>Président, coach et joueur du Paris Clichy FC depuis 2018 — foot à 7, 35 joueurs, 3 équipes. Coach depuis 2012 : d’abord à l’ENSEA, puis adjoint U18 à l’A3M de 2014 à 2016, et U12 à l’US Montbazon en 2016-2017 — saison conclue par un titre.</p>
     </div>
     <div class="carte">
       <h3>Sport</h3>
@@ -320,7 +321,7 @@
     <div class="carte dl-carte">
       <div class="icone">📄</div>
       <h3>CV</h3>
-      <p>Le CV complet, mis en page — 2 pages.</p>
+      <p>Le CV complet, mis en page.</p>
       <div class="btns"><a class="btn" href="assets/cv.pdf" download>Télécharger le PDF</a></div>
     </div>
     <div class="carte dl-carte">
