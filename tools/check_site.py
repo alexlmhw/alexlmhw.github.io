@@ -34,6 +34,8 @@ MOTIF_TITRE = re.compile(r"<title>(.*?)</title>", re.S)
 MOTIF_DESC = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"')
 MOTIF_ID = re.compile(r'id\s*=\s*"([^"]+)"')
 MOTIF_MENU_LIEN = re.compile(r'<a\s+href=(["\'])([^\1]+?)\1([^>]*)>')
+# Attributs dont la valeur est du texte lu par un humain ou un moteur.
+MOTIF_ATTR_TEXTE = re.compile(r'\b(alt|title|aria-label|content)="([^"]*)"')
 
 erreurs = []
 
@@ -144,6 +146,41 @@ def main():
 
         if not MOTIF_DESC.search(texte):
             erreur(nom, "meta description absente")
+
+        # Balises indispensables au partage (LinkedIn, Slack, mail) et a l'accessibilite.
+        for motif, manque in (
+            ('rel="canonical"', "lien canonical absent"),
+            ('property="og:title"', "balise og:title absente"),
+            ('property="og:description"', "balise og:description absente"),
+            ('property="og:image"', "balise og:image absente"),
+            ('property="og:url"', "balise og:url absente"),
+            ('rel="icon"', "favicon absent"),
+            ('class="saut"', "lien d'evitement absent"),
+            ('<main id="contenu">', "ancre #contenu du lien d'evitement absente"),
+        ):
+            if motif not in texte:
+                erreur(nom, manque)
+
+        # Typographie francaise : apostrophe courbe partout ou le texte est lu par
+        # un humain ou un moteur. On couvre le texte hors balises, plus les
+        # attributs porteurs de texte. Les autres attributs (href, class, style)
+        # sont ignores : une apostrophe y serait legitime.
+        suspects = [m for m in re.split(r"(<[^>]*>)", texte)
+                    if not m.startswith("<") and "'" in m]
+        suspects += [v for _, v in MOTIF_ATTR_TEXTE.findall(texte) if "'" in v]
+        if suspects:
+            erreur(nom, "apostrophe droite dans le texte : "
+                        + " ".join(suspects[0].split())[:40])
+
+        # Un saut de niveau de titre (h1 -> h3 par exemple) casse la navigation
+        # au lecteur d'ecran. On verifie la continuite de la hierarchie.
+        niveaux = [int(n) for n in re.findall(r"<h([1-6])[^>]*>", texte.split("<main", 1)[-1])]
+        precedent = None
+        for n in niveaux:
+            if precedent is not None and n > precedent + 1:
+                erreur(nom, "saut de niveau de titre h{} -> h{}".format(precedent, n))
+                break
+            precedent = n
 
         if VERIFIER_MENU:
             menus[nom] = bloc_menu(texte)

@@ -17,6 +17,10 @@ body{font-family:'Lato',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;colo
 a{color:var(--bleu-accent)}
 img{max-width:100%;display:block}
 
+/* ---------- Lien d'evitement (visible au clavier seulement) ---------- */
+.saut{position:absolute;left:-9999px;top:0;z-index:100;background:var(--bleu-fonce);color:#fff;font-weight:700;font-size:14px;padding:12px 18px;border-radius:0 0 7px 0;text-decoration:none}
+.saut:focus{left:0}
+
 /* ---------- Layout ---------- */
 .page{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
 .sidebar{background:var(--sidebar);padding:44px 28px;border-right:1px solid var(--bordure)}
@@ -26,7 +30,7 @@ main{padding:52px 56px 30px;max-width:1080px}
 /* ---------- Sidebar ---------- */
 .photo{width:170px;height:170px;border-radius:50%;object-fit:cover;margin:0 auto 18px}
 .side-nom{text-align:center;font-weight:900;color:var(--bleu-fonce);font-size:20px;letter-spacing:.04em;margin-bottom:26px}
-.side-titre{font-size:12.5px;font-weight:700;letter-spacing:.22em;color:var(--bleu-accent);text-transform:uppercase;border-bottom:1px solid #C3D2E4;padding-bottom:6px;margin:26px 0 12px}
+.side-titre{font-size:12.5px;font-weight:700;letter-spacing:.22em;color:var(--bleu);text-transform:uppercase;border-bottom:1px solid #C3D2E4;padding-bottom:6px;margin:26px 0 12px}
 .sidebar p, .sidebar li{font-size:14px;color:var(--texte)}
 .sidebar ul{list-style:none}
 .sidebar li{margin-bottom:7px}
@@ -141,7 +145,7 @@ footer{border-top:1px solid var(--bordure);padding:26px 0 10px;color:var(--texte
 /* ---------- Pages de detail ---------- */
 .entete-projet{border-bottom:1px solid var(--bordure);padding-bottom:26px;margin-bottom:30px}
 .meta-projet{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;max-width:900px}
-.meta-bloc h4{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--bleu-accent);margin-bottom:6px}
+.meta-bloc h2{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--bleu-accent);margin-bottom:6px}
 .meta-bloc p{font-size:14px;color:var(--texte)}
 .phase{border-left:3px solid var(--bleu-clair);padding-left:22px;margin-bottom:34px;max-width:860px}
 .phase-num{font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--bleu-accent);margin-bottom:4px}
