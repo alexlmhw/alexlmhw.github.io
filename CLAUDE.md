@@ -14,6 +14,13 @@ publiée telle quelle, sans build ni générateur de site.
   détail. Elles partagent le gabarit de `outils.html` (head, sidebar, footer).
 - `assets/style.css` — **tous** les styles, partagés par les 5 pages. Aucun
   `<style>` inline ne doit réapparaître dans une page.
+- `404.html` — page servie par GitHub Pages pour toute adresse inconnue. Même
+  gabarit que les pages de détail, mais **aucune entrée de menu marquée active**
+  (elle ne figure pas dans le menu) et un `<meta name="robots" content="noindex">`.
+  `check_site.py` la traite via `PAGES_SANS_ENTREE_MENU`.
+- Les `<img>` portent des attributs `width`/`height` égaux aux dimensions réelles
+  du fichier : ils donnent son ratio au navigateur avant chargement et évitent que
+  la page sursaute. La règle globale `img{height:auto}` empêche toute déformation.
 - `tools/check_site.py` — vérifications structurelles. À lancer après toute
   modification : `python tools/check_site.py`.
 - `assets/cv.pdf`, `assets/book.pdf` — documents téléchargeables. **Fournis par

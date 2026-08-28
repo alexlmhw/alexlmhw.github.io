@@ -15,7 +15,11 @@
 html{scroll-behavior:smooth}
 body{font-family:'Lato',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--texte);background:var(--fond);line-height:1.55;font-size:16px}
 a{color:var(--bleu-accent)}
-img{max-width:100%;display:block}
+/* height:auto neutralise l'attribut height du HTML quand le CSS contraint la
+   largeur. Les attributs width/height du HTML restent utiles : ils donnent au
+   navigateur le ratio de l'image avant son chargement, ce qui evite que la page
+   sursaute. Les regles plus specifiques ci-dessous conservent la main. */
+img{max-width:100%;display:block;height:auto}
 
 /* ---------- Lien d'evitement (visible au clavier seulement) ---------- */
 .saut{position:absolute;left:-9999px;top:0;z-index:100;background:var(--bleu-fonce);color:#fff;font-weight:700;font-size:14px;padding:12px 18px;border-radius:0 0 7px 0;text-decoration:none}
