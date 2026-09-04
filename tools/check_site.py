@@ -177,6 +177,18 @@ def main():
             erreur(nom, "apostrophe droite dans le texte : "
                         + " ".join(suspects[0].split())[:40])
 
+        # Tiret cadratin proscrit dans les pages : selon le role qu'il jouait, on
+        # ecrit " \u00b7 " (titres, noms de projet, entrees de menu), " : "
+        # (etiquette de liste) ou une virgule (incise en pleine phrase). Meme
+        # perimetre que l'apostrophe : texte hors balises et attributs de texte.
+        # Le tiret demi-cadratin reste legitime pour les plages de dates.
+        cadratins = [m for m in re.split(r"(<[^>]*>)", texte)
+                     if not m.startswith("<") and "\u2014" in m]
+        cadratins += [v for _, v in MOTIF_ATTR_TEXTE.findall(texte) if "\u2014" in v]
+        if cadratins:
+            erreur(nom, "tiret cadratin dans le texte : "
+                        + " ".join(cadratins[0].split())[:40])
+
         # Un saut de niveau de titre (h1 -> h3 par exemple) casse la navigation
         # au lecteur d'ecran. On verifie la continuite de la hierarchie.
         niveaux = [int(n) for n in re.findall(r"<h([1-6])[^>]*>", texte.split("<main", 1)[-1])]

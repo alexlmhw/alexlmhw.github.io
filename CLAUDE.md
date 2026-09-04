@@ -55,6 +55,14 @@ page courante. `tools/check_site.py` vérifie cette identité et échoue sinon.
   `aria-label`, `content`). L'apostrophe ASCII `'` ne doit plus apparaître dans le
   HTML des 5 pages — elle reste normale dans le code (`tools/check_site.py`) et
   dans ce fichier. En rédigeant une nouvelle page, écrire directement `’`.
+- **Aucun tiret cadratin `—`** dans les 5 pages ni dans `404.html` : ni dans le
+  texte visible, ni dans les attributs porteurs de texte. Selon le rôle qu'il
+  jouait, écrire `·` (titre, nom de projet, entrée de menu : « Bugali · console »),
+  `:` (étiquette de liste : « <b>Conception</b> : protos complets… ») ou une simple
+  virgule (incise en pleine phrase). Attention à ne pas créer ainsi un second `:`
+  dans la même phrase. Le tiret demi-cadratin `–` reste, lui, en place pour les
+  plages de dates (« 2019 – 2021 »). `tools/check_site.py` échoue si un `—`
+  réapparaît ; il reste normal dans le code et dans ce fichier.
 - Structure de `index.html` : une `<section id="...">` par bloc. La plupart sont
   reprises dans la liste d'ancres de la sidebar (`.side-nav`) — ajouter une section
   de contenu implique en général d'ajouter son lien. Exceptions : `#haut` (le hero)
@@ -116,7 +124,7 @@ Après toute modification :
 
 1. `python tools/check_site.py` — vérifie automatiquement : les 5 pages
    attendues, les liens internes (`src`/`href` vers `assets/`), les ancres, l'unicité
-   des `title`s, la présence de meta description, et l'identité du menu entre les 5
-   pages.
+   des `title`s, la présence de meta description, l'absence d'apostrophe droite
+   et de tiret cadratin, et l'identité du menu entre les 5 pages.
 2. Vérifier visuellement le rendu des 5 pages en desktop et en mobile 375 px — seul
    point que le script ne couvre pas.
